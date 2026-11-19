@@ -135,10 +135,10 @@
   /* ---------- SECURITY FLOW ---------- */
   .sec-flow{background:var(--bg-2)}
   .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative}
-  .flow-step{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:26px 22px;box-shadow:var(--shadow-sm)}
+  .flow-step{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:26px 22px;box-shadow:var(--shadow-sm);position:relative}
   .flow-step .num{width:40px;height:40px;border-radius:11px;background:var(--brand-soft);color:var(--brand);
     display:grid;place-items:center;font-weight:800;margin-bottom:16px;font-size:17px}
-  .flow-step .fic{font-size:22px;color:var(--sec);margin-bottom:12px}
+  .flow-step .fic{position:absolute;top:28px;right:22px;font-size:22px;color:var(--sec);line-height:1}
   .flow-step h3{font-size:17px;font-weight:700;margin-bottom:7px}
   .flow-step p{font-size:14px;color:var(--text-muted)}
 
