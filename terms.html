@@ -6,52 +6,64 @@
 <title>Terms of Use · VaultCell</title>
 <meta name="description" content="Terms of Use for VaultCell, supplementing the Apple Licensed Application End User License Agreement." />
 <meta name="robots" content="index,follow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/icons.css" />
+<link rel="icon" type="image/png" href="assets/logo.png" />
 <!--
   ============================================================
-  VaultCell Terms of Use  ·  Version 2026-09-17
+  VaultCell Terms of Use  ·  Version 2026-11-19
   ------------------------------------------------------------
-  BEFORE PUBLISHING, replace every [[FILL: ...]] marker:
-    1. Developer city / correspondence address
-    2. Contact email
-    3. Subscription name, price tier, and trial length
-    4. Governing law venue (city)
-    5. Canonical domain
-
   These terms SUPPLEMENT the standard Apple Licensed Application
   End User License Agreement (EULA), which applies automatically
   to every app distributed through the App Store. Where these
   terms conflict with the Apple EULA, the Apple EULA prevails to
   the extent of the conflict.
 
-  PRODUCT MODEL: free, and open source under Apache-2.0.
-  BEFORE PUBLISHING, replace every [[FILL: ...]] marker:
-    1. Developer city / correspondence address
-    2. Support email
-    3. Security contact (security@ or GitHub Security Advisories URL)
-    4. GitHub repository URL
-    5. Governing law venue (city)
-    6. Canonical domain
+  PRODUCT MODEL: free, closed source. Section 5 is deliberately
+  NEUTRAL — it states the present fact (free, no subscription, no
+  IAP) and makes NO commitment about future pricing. Do not add
+  promises like "already-free features stay free" back into it:
+  the point is to avoid any expression of commercial intent, so
+  that a non-trader declaration under the EU DSA remains honest.
+  Sections 3, 10 and 12 are neutral for the same reason (no paid
+  subscriptions to refund, no purchase amount in the liability
+  cap, nothing to apply retroactively).
 
-  SECTION 5 IS A BINDING COMMITMENT, NOT MARKETING COPY.
-  It promises that features free today stay free, that payment
-  would apply only to newly added functionality, and that user
-  data will never be used as leverage. Do not publish it unless
-  you intend to honour it. If you ever change your mind, you must
-  republish these terms BEFORE the pricing change takes effect.
+  ALL PLACEHOLDERS RESOLVED 2026-11-19:
+    1. No city and no postal address are published (developer named as
+       WANG GANG only), per the zero-data / non-trader posture.
+    2. No exclusive jurisdiction city: jurisdiction follows applicable
+       law, with the mandatory consumer carve-outs in section 13 intact.
+    3. Canonical domain: vaultcell.app.
 
-  LICENCE NOTE (do not switch without reading): the code is
-  Apache-2.0. Do NOT relicense to GPLv2/GPLv3/AGPL — those are
-  understood to conflict with the App Store distribution terms,
-  which is why GPL apps (VLC being the well known case) have been
-  pulled from the App Store. MPL-2.0 is the copyleft option that
-  stays compatible, if you later want stronger reciprocity.
+  CHANGE 2026-11-19 (2): the app will be distributed in the EEA and
+  the UK. The consumer-protection carve-outs in sections 10 and 13
+  are MANDATORY in those jurisdictions (Rome I Art. 6 and its UK
+  equivalent) — do not soften or remove them. No additional EU/UK
+  clauses are required: the EU 14-day withdrawal right applies only
+  to paid distance contracts, and the EU ODR platform was shut down
+  in July 2025, so do not add a link to it.
+
+  DECISION 2026-11-19 (FINAL): EEA/UK users get FAQ-only support and
+  no email channel, so no personal data of theirs reaches us — see
+  privacy.html section 1. GDPR Art. 27 representatives are therefore
+  NOT appointed and a non-trader DSA declaration is defensible,
+  which is why section 5 and the other commercial wording were
+  neutralised. Re-assess BOTH if you ever add email support, an
+  account, analytics, donations, or any paid feature for those users.
+
+  CHANGE 2026-11-19: email contact consolidated to
+  support@vaultcell.app for users OUTSIDE the EEA/UK; EEA/UK users
+  use the FAQ. Open-source licence sections removed.
   ============================================================
 -->
 <style>
   :root{
     --bg:#f6f9fe; --surface:#ffffff; --surface-2:#f1f6ff;
     --border:#e3eaf4; --text:#0d1b2e; --muted:#56657c;
-    --brand:#2563eb; --brand-soft:#e8f0ff;
+    --brand:#2563eb; --brand-strong:#1d4ed8; --brand-soft:#e8f0ff;
     --sec:#10b981; --sec-soft:#e6f7f0;
     --warn:#854f0b; --warn-bg:#faeeda;
     --r:14px; --maxw:820px;
@@ -60,27 +72,42 @@
     :root{
       --bg:#0a1220; --surface:#111d30; --surface-2:#15233a;
       --border:#213349; --text:#eaf1fb; --muted:#9fb0c7;
-      --brand:#4d8bff; --brand-soft:#16243d;
+      --brand:#4d8bff; --brand-strong:#6ea2ff; --brand-soft:#16243d;
       --sec:#34d399; --sec-soft:#0f2c24;
       --warn:#f5c57a; --warn-bg:#3a2a12;
     }
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{
-    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Noto Sans SC','Microsoft YaHei',sans-serif;
+    font-family:'Outfit',-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Noto Sans SC','Microsoft YaHei',sans-serif;
     background:var(--bg); color:var(--text); line-height:1.75;
     -webkit-font-smoothing:antialiased; font-size:15.5px;
   }
   a{color:var(--brand);text-decoration:none}
   a:hover{text-decoration:underline}
 
-  .bar{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
-    background:color-mix(in srgb, var(--bg) 82%, transparent);border-bottom:1px solid var(--border)}
-  .bar-in{max-width:var(--maxw);margin:0 auto;padding:0 24px;height:60px;
-    display:flex;align-items:center;justify-content:space-between;gap:16px}
-  .bar .home{display:flex;align-items:center;gap:9px;font-weight:700;font-size:17px;color:var(--text)}
-  .bar .home span{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
-    background:linear-gradient(135deg,var(--brand),var(--sec));color:#fff;font-size:13px}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:15px;
+    padding:11px 22px;border-radius:999px;border:1px solid transparent;cursor:pointer;
+    transition:background .2s ease, transform .18s ease, box-shadow .25s ease}
+  .btn-primary{background:var(--brand);color:#fff;box-shadow:0 10px 26px rgba(37,99,235,.32)}
+  .btn-primary:hover{background:var(--brand-strong);text-decoration:none}
+  .btn-primary:active{transform:translateY(1px) scale(.99)}
+
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:saturate(180%) blur(14px);
+    background:color-mix(in srgb, var(--bg) 78%, transparent);
+    border-bottom:1px solid var(--border)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px;gap:18px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;
+    letter-spacing:-.02em;color:var(--text)}
+  .brand:hover{text-decoration:none}
+  .logo-mark{width:34px;height:34px;border-radius:23%;object-fit:cover;display:block;
+    box-shadow:0 8px 24px rgba(20,50,100,.08)}
+  .nav-links{display:flex;gap:26px;font-size:15px;font-weight:500;color:var(--muted)}
+  .nav-links a{transition:color .2s}
+  .nav-links a:hover{color:var(--brand);text-decoration:none}
+  .nav-cta{display:flex;align-items:center;gap:14px}
+  @media (max-width:900px){.nav-links{display:none}}
   .langs{display:flex;gap:4px;background:var(--surface-2);border:1px solid var(--border);
     border-radius:999px;padding:3px}
   .langs button{border:0;background:transparent;color:var(--muted);font:inherit;font-size:13.5px;
@@ -133,22 +160,42 @@
   body[data-lang="en"] .doc[data-lang="zh"]{display:none}
   body[data-lang="zh"] .doc[data-lang="en"]{display:none}
 
-  footer.page{border-top:1px solid var(--border);background:var(--surface);padding:32px 0}
-  .foot-in{max-width:var(--maxw);margin:0 auto;padding:0 24px;font-size:13.5px;color:var(--muted);
-    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  footer.site{border-top:1px solid var(--border);background:var(--surface);padding:54px 0 36px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px}
+  .foot-brand p{font-size:14px;color:var(--muted);max-width:30ch;margin-top:14px}
+  .foot-col h4{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
+    color:var(--muted);margin-bottom:14px}
+  .foot-col a{display:block;font-size:14.5px;color:var(--muted);padding:5px 0;transition:color .2s}
+  .foot-col a:hover{color:var(--brand);text-decoration:none}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;
+    border-top:1px solid var(--border);font-size:13.5px;color:var(--muted);flex-wrap:wrap;gap:12px}
+  .foot-bottom .soc{display:flex;gap:14px}
+  .foot-bottom .soc a{font-size:18px;color:var(--muted)}
+  .foot-bottom .soc a:hover{color:var(--brand)}
+  @media (max-width:640px){.foot-grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body data-lang="en">
 
-<div class="bar">
-  <div class="bar-in">
-    <a class="home" href="/"><span>VC</span> VaultCell</a>
-    <div class="langs" role="group" aria-label="Language">
-      <button type="button" data-set="en" aria-pressed="true">English</button>
-      <button type="button" data-set="zh" aria-pressed="false">简体中文</button>
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">
+      <img class="logo-mark" src="assets/logo.png" alt="VaultCell icon" width="34" height="34" />
+      VaultCell
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#features">Features</a>
+      <a href="index.html#security">Security</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <div class="langs" role="group" aria-label="Language">
+        <button type="button" data-set="en" aria-pressed="true">English</button>
+        <button type="button" data-set="zh" aria-pressed="false">简体中文</button>
+      </div>
     </div>
   </div>
-</div>
+</header>
 
 <main>
 
@@ -157,8 +204,8 @@
   <div class="doc-head">
     <h1>Terms of Use</h1>
     <div class="meta">
-      <span class="tag hl">Version 2026-09-17</span>
-      <span class="tag">Effective September 17, 2026</span>
+      <span class="tag hl">Version 2026-11-19</span>
+      <span class="tag">Effective November 19, 2026</span>
       <span class="tag">VaultCell for iOS, iPadOS, macOS</span>
     </div>
   </div>
@@ -193,7 +240,7 @@
 
   <h2 id="service">3. The service</h2>
   <p>VaultCell is a password and secret manager. It stores your passwords, passkeys, cards, and notes in an encrypted vault on your device, and — if you enable it — synchronises that vault across your devices using Apple's CloudKit. There is no user account and no registration; the vault belongs to your device and to your own iCloud account.</p>
-  <p>We may add, change, or remove features over time. If a change removes functionality you have already paid for, we will refund the unused portion of the affected subscription period on request.</p>
+  <p>We may add, change, or remove features over time. VaultCell is provided free of charge, so there are no paid subscriptions to refund.</p>
 
   <h2 id="master">4. Master password and recovery — read this</h2>
   <div class="alert">
@@ -209,16 +256,9 @@
   </ul>
   <p>We are not responsible for any loss of data arising from a lost, forgotten, or compromised master password, or from a lost recovery key.</p>
 
-  <h2 id="billing">5. Free today, and what happens if we add paid features</h2>
-  <p><strong>VaultCell is free.</strong> Every feature described in section 3 is available to you at no charge, with no subscription, no trial period, and no in-app purchase required.</p>
-  <p>We may introduce paid features later. If we do, these commitments apply:</p>
-  <ul>
-    <li><strong>Already-free features stay free.</strong> We will not take functionality that is available to you free of charge today and move it behind a payment later.</li>
-    <li><strong>New features only.</strong> Payment, if introduced, will apply to functionality added after that change — not to anything you are already using.</li>
-    <li><strong>Your data is never the lever.</strong> Whatever happens to pricing, we will not withhold, encrypt, degrade, or block export of your existing vault in order to extract payment. Export stays available in every version.</li>
-    <li><strong>Purchases go through Apple.</strong> Any sale would be an App Store in-app purchase processed by Apple, subject to Apple's own rules on renewal, cancellation, and refunds.</li>
-  </ul>
-  <p>We would rather forgo revenue than ship a pricing change quietly. If this ever changes we will announce it in the app and update this section before it takes effect.</p>
+  <h2 id="billing">5. Fees</h2>
+  <p><strong>VaultCell is provided free of charge.</strong> Every feature described in section 3 is available to you at no charge, with no subscription, no trial period, and no in-app purchase.</p>
+  <p>The app is supplied as it exists today. This section describes its present terms and does not commit us to any particular pricing, feature set, or availability in the future. We may add, change, or discontinue features; any change will take effect only as stated in the version of these terms published at that time.</p>
 
   <h2 id="use">6. Acceptable use</h2>
   <p>You agree not to:</p>
@@ -228,39 +268,35 @@
     <li>distribute a modified copy in a way that is likely to make people believe it is the official VaultCell — by reusing our name, logo, App Store identity, or branding;</li>
     <li>use the app in a way that damages, overloads, or impairs any of our systems or Apple's.</li>
   </ul>
-  <p>Nothing here restricts what the Apache License permits you to do with the source code. Reading the code, building it yourself, modifying it, and redistributing your own version are all allowed by that licence. What it does not allow is passing your version off as ours.</p>
-  <p><strong>Security research.</strong> This is a password manager, so we would much rather hear about a weakness than not. If you find one, please report it privately at <span class="fill">[[FILL: security@vaultcell.app, or GitHub Security Advisories]]</span> and give us a reasonable window to ship a fix before disclosing publicly. We will not threaten or pursue anyone who reports a vulnerability in good faith.</p>
+  <p><strong>Security research.</strong> This is a password manager, so we would much rather hear about a weakness than not. If you find one, please report it privately at <a href="mailto:support@vaultcell.app"><strong>support@vaultcell.app</strong></a> and give us a reasonable window to ship a fix before disclosing publicly. We will not threaten or pursue anyone who reports a vulnerability in good faith.</p>
   <p>We may suspend or terminate access for anyone who breaches these terms.</p>
 
-  <h2 id="ip">7. Intellectual property and the open-source licence</h2>
+  <h2 id="ip">7. Intellectual property</h2>
   <p><strong>Your content stays yours.</strong> We claim no ownership over anything you store in your vault.</p>
-  <p><strong>The source code is open.</strong> VaultCell is developed in the open at <span class="fill">[[FILL: https://github.com/USERNAME/vaultcell]]</span> under the <strong>Apache License, Version 2.0</strong>. That licence lets you use, modify, build, and redistribute the code — including commercially — and lets you keep your own modifications under terms you choose. We picked it on purpose: for a password manager the most valuable thing we can offer is the ability to check our claims, and readable code is the only way to actually do that.</p>
-  <p><strong>What the licence does not give you.</strong> Apache-2.0 grants no permission to use the VaultCell name, logo, or any other trademark. You are free to say that your work is derived from VaultCell where that is factually true, but not to ship something that looks like it came from us.</p>
-  <p><strong>The App Store build may differ from the repository.</strong> The copy distributed through the App Store can contain things that are not part of the open-source release — Apple-proprietary APIs and entitlements, or fonts and artwork whose own licences do not permit redistribution. Where that happens it is noted in the repository. Nothing in this section licenses those components to you.</p>
-  <p>Outside the code licensed under Apache-2.0 above, VaultCell — including its name, logo, and design — is owned by WANG GANG and protected by copyright and other laws. These terms grant you a limited, personal, non-exclusive, non-transferable licence to use the app on devices you own or control, subject to the Apple EULA.</p>
+  <p><strong>The VaultCell name, logo, and design.</strong> VaultCell — including its name, logo, and design — is owned by WANG GANG and protected by copyright, trademark, and other laws. You may refer to VaultCell by name where that is factually accurate, but you may not use our name, logo, or branding in a way that suggests your product or service comes from us or is endorsed by us.</p>
+  <p>These terms grant you a limited, personal, non-exclusive, non-transferable licence to use the app on devices you own or control, subject to the Apple EULA.</p>
 
   <h2 id="third">8. Third-party services</h2>
   <p>VaultCell depends on services provided by Apple — the App Store, iCloud, and CloudKit. Your use of those services is governed by Apple's own terms, not these. We are not responsible for outages, data loss, or changes in Apple's services. Where your Apple ID region is mainland China, CloudKit is operated by Guizhou-Cloud Big Data Industrial Development Co., Ltd.</p>
 
   <h2 id="warranty">9. Warranty disclaimer</h2>
-  <p>VaultCell is free software, provided "as is" and "as available". To the maximum extent permitted by law, we disclaim all warranties, express or implied, including implied warranties of merchantability, fitness for a particular purpose, and non-infringement. We do not warrant that the app will be uninterrupted, error-free, or free of harmful components.</p>
-  <p>You should not have to take our word for any of it. The code is public precisely so that you — or someone you trust — can read it and judge for yourself. Please do that before relying on VaultCell for anything you cannot afford to lose.</p>
+  <p>VaultCell is provided free of charge, "as is" and "as available". To the maximum extent permitted by law, we disclaim all warranties, express or implied, including implied warranties of merchantability, fitness for a particular purpose, and non-infringement. We do not warrant that the app will be uninterrupted, error-free, or free of harmful components.</p>
   <p>Some jurisdictions do not allow the exclusion of implied warranties, in which case this section applies to you only to the extent permitted.</p>
 
   <h2 id="liability">10. Limitation of liability</h2>
   <p>To the maximum extent permitted by law, we will not be liable for any indirect, incidental, special, consequential, or punitive damages, or for any loss of profits, revenue, data, or goodwill, arising out of your use of or inability to use VaultCell — including loss of vault data — even if we were advised of the possibility.</p>
-  <p>Where liability cannot be excluded, our total aggregate liability is limited to the greater of (a) the amount you paid us for VaultCell in the twelve months preceding the event, or (b) <span class="fill">[[FILL: 100 CNY / the statutory floor in your jurisdiction]]</span>.</p>
+  <p>Where liability cannot be excluded, our total aggregate liability is limited to the minimum amount permitted by applicable law. VaultCell is provided free of charge, so no amount paid by you is part of this calculation.</p>
   <p>Nothing in these terms limits any liability that cannot be limited under applicable law, including liability for death or personal injury caused by negligence, for fraud, or for breach of your statutory consumer rights. If you are a consumer in the EEA, the United Kingdom, Australia, or New Zealand, you retain the protections of the mandatory consumer law of your country of residence.</p>
 
   <h2 id="termination">11. Termination and availability</h2>
-  <p>You may stop using VaultCell at any time by deleting the app. If you want the encrypted copy removed from iCloud as well, use <span class="fill">[[FILL: Settings → Advanced → Delete vault from iCloud]]</span> or remove it through your iCloud settings — deleting the app alone does not remove iCloud data.</p>
+  <p>You may stop using VaultCell at any time by deleting the app. If you want the encrypted copy removed from iCloud as well, remove it through your iCloud settings — deleting the app alone does not remove iCloud data.</p>
   <p>We may discontinue the app or any part of it. If we do, we will give reasonable advance notice where practicable so that you can export your data.</p>
 
   <h2 id="changes">12. Changes to these terms</h2>
-  <p>We may update these terms. The current version, with its version number and effective date, is always published at this URL; superseded versions remain available at <span class="fill">[[FILL: https://vaultcell.app/legal/archive/2026-09-17/terms.html]]</span>. If a change materially reduces your rights, we will notify you in the app, and the change will not apply retroactively to a subscription period you have already paid for.</p>
+  <p>We may update these terms. The current version, with its version number and effective date, is always published at this URL. If a change materially reduces your rights, we will notify you in the app. Changes take effect prospectively from the effective date shown above; VaultCell has no paid subscription periods, so there is nothing to apply retroactively.</p>
 
   <h2 id="law">13. Governing law and disputes</h2>
-  <p>These terms are governed by the laws of the People's Republic of China, excluding its conflict-of-laws rules. The courts of <span class="fill">[[FILL: city]]</span>, People's Republic of China have exclusive jurisdiction, except that:</p>
+  <p>These terms are governed by the laws of the People's Republic of China, excluding its conflict-of-laws rules. Jurisdiction is determined in accordance with applicable law, subject to the following:</p>
   <ul>
     <li>if you are a consumer in the EEA, the United Kingdom, Australia, or New Zealand, you may bring proceedings in your country of residence, and you retain the benefit of any mandatory consumer protections that cannot be waived by contract;</li>
     <li>nothing here deprives you of any right you have under the mandatory consumer or data protection law of your country of residence to bring a claim or complaint before a local court or authority.</li>
@@ -268,8 +304,8 @@
   <p>We would rather sort things out directly. Before starting any formal proceeding, please contact us and give us 30 days to resolve the matter.</p>
 
   <h2 id="contact">14. Contact</h2>
-  <p>Questions about these terms: <span class="fill">[[FILL: support@vaultcell.app]]</span></p>
-  <p>Developer: WANG GANG · <span class="fill">[[FILL: correspondence address]]</span></p>
+  <p>Questions about these terms: <a href="mailto:support@vaultcell.app"><strong>support@vaultcell.app</strong></a> (outside the EEA/UK). EEA/UK users: see the FAQ in the app and on our website for support and for answers about these terms.</p>
+  <p>Developer: WANG GANG</p>
 </article>
 
 <!-- ================= 简体中文 ================= -->
@@ -277,8 +313,8 @@
   <div class="doc-head">
     <h1>使用条款</h1>
     <div class="meta">
-      <span class="tag hl">版本 2026-09-17</span>
-      <span class="tag">生效日期：2026 年 9 月 17 日</span>
+      <span class="tag hl">版本 2026-11-19</span>
+      <span class="tag">生效日期：2026 年 11 月 19 日</span>
       <span class="tag">适用于 iOS、iPadOS、macOS 版 VaultCell</span>
     </div>
   </div>
@@ -290,7 +326,7 @@
       <li><a href="#zh-eligible">使用资格</a></li>
       <li><a href="#zh-service">服务内容</a></li>
       <li><a href="#zh-master">主密码与恢复——请务必阅读</a></li>
-      <li><a href="#zh-billing">订阅与计费</a></li>
+      <li><a href="#zh-billing">费用</a></li>
       <li><a href="#zh-use">正当使用</a></li>
       <li><a href="#zh-ip">知识产权</a></li>
       <li><a href="#zh-third">第三方服务</a></li>
@@ -313,7 +349,7 @@
 
   <h2 id="zh-service">3. 服务内容</h2>
   <p>VaultCell 是一款密码与机密信息管理器。它将你的密码、通行密钥、卡片和笔记以加密形式存于设备本地的保险库中；若你开启同步，则通过 Apple 的 CloudKit 在你的多台设备间同步。本服务不设用户账号、无需注册，保险库归属于你的设备与你本人的 iCloud 账户。</p>
-  <p>我们会随时间增加、调整或移除功能。若某项变更导致你已付费的功能被移除，我们将应你的请求退还未使用期间的费用。</p>
+  <p>我们会随时间增加、调整或移除功能。VaultCell 免费提供，因此不存在需要退款的付费订阅。</p>
 
   <h2 id="zh-master">4. 主密码与恢复——请务必阅读</h2>
   <div class="alert">
@@ -329,16 +365,9 @@
   </ul>
   <p>对于因主密码遗失、遗忘或被泄露，或因恢复密钥丢失导致的任何数据损失，我们不承担责任。</p>
 
-  <h2 id="zh-billing">5. 当前免费，以及未来若增加付费功能的处理原则</h2>
-  <p><strong>VaultCell 目前免费。</strong>第 3 节所述的全部功能均可免费使用，没有订阅、没有试用期，也不需要任何应用内购买。</p>
-  <p>我们未来可能引入付费功能。若如此，我们遵守以下承诺：</p>
-  <ul>
-    <li><strong>已免费的功能永久免费。</strong>我们不会把今天免费提供给你使用的功能，日后改为收费。</li>
-    <li><strong>仅限新增功能。</strong>若引入收费，只针对该次变更之后新增的功能，不涉及你已在使用的任何部分。</li>
-    <li><strong>你的数据绝不是筹码。</strong>无论定价如何变化，我们都不会对既有保险库数据进行扣留、额外加密、降级或限制导出，以此索取费用。任何版本都保留导出功能。</li>
-    <li><strong>通过 Apple 购买。</strong>如需收费，将通过 App Store 以应用内购买形式由 Apple 处理，续订、取消与退款适用 Apple 自身规则。</li>
-  </ul>
-  <p>与其悄悄改价格，我们宁可放弃这部分收入。若定价确有变更，我们会在应用内提前公告，并在变更生效前更新本节。</p>
+  <h2 id="zh-billing">5. 费用</h2>
+  <p><strong>VaultCell 免费提供。</strong>第 3 节所述的全部功能均可免费使用，没有订阅、没有试用期，也没有任何应用内购买。</p>
+  <p>本应用按其当前形态提供。本节描述的是目前的条款，并不就未来的定价、功能或可用性作出任何承诺。我们可能增加、变更或停止提供某些功能；任何变更仅按届时公布的本条款版本生效。</p>
 
   <h2 id="zh-use">6. 正当使用</h2>
   <p>你承诺不会：</p>
@@ -348,39 +377,35 @@
     <li>以可能让人误以为是官方 VaultCell 的方式分发修改版——例如沿用我们的名称、标识、App Store 身份或品牌设计；</li>
     <li>以可能损害、过载或削弱我们或 Apple 系统的方式使用本应用。</li>
   </ul>
-  <p>本节不限制 Apache 许可证赋予你对源代码的权利。阅读代码、自行编译、修改，以及分发你自己的版本，均为该许可证所允许。它不允许的，是把你的版本冒充成我们的。</p>
-  <p><strong>安全研究。</strong>这是一款密码管理器，比起无人告知，我们远更希望得知漏洞。若你发现问题，请先通过 <span class="fill">[[待填写：security@vaultcell.app 或 GitHub Security Advisories]]</span>私下提交，并给予我们合理的修复窗口，再公开披露。对于善意报告漏洞的人，我们不会追究或威胁。</p>
+  <p><strong>安全研究。</strong>这是一款密码管理器，比起无人告知，我们远更希望得知漏洞。若你发现问题，请先通过 <a href="mailto:support@vaultcell.app"><strong>support@vaultcell.app</strong></a> 私下提交，并给予我们合理的修复窗口，再公开披露。对于善意报告漏洞的人，我们不会追究或威胁。</p>
   <p>对违反本条款者，我们可暂停或终止其使用。</p>
 
-  <h2 id="zh-ip">7. 知识产权与开源许可</h2>
+  <h2 id="zh-ip">7. 知识产权</h2>
   <p><strong>你的内容归你所有。</strong>对于你存入保险库的任何内容，我们不主张任何权利。</p>
-  <p><strong>源代码开放。</strong>VaultCell 以 <strong>Apache 许可证 2.0 版</strong>在 <span class="fill">[[待填写：https://github.com/用户名/vaultcell]]</span>公开开发。该许可证允许你使用、修改、编译和再分发代码——包括商业用途——并允许你自行决定衍生版本的许可条款。我们是有意这样选择的：对一款密码管理器而言，我们能提供的最有价值的东西就是让人验证我们的说法，而公开可读的代码是真正做到这一点的唯一方式。</p>
-  <p><strong>许可证未授予的部分。</strong>Apache 许可证不授予使用 VaultCell 名称、标识或其他商标的权利。你完全可以在陈述属实的前提下说明你的作品衍生自 VaultCell，但不得发布看起来出自我们之手的产品。</p>
-  <p><strong>App Store 版本可能与仓库存在差异。</strong>通过 App Store 分发的版本可能包含不属于开源发布物的组件——例如 Apple 专有的接口与授权能力，或自身许可证不允许再分发的字体与美术素材。若存在这类情况，我们会在仓库中注明。本节不向你许可这些组件。</p>
-  <p>除上述按 Apache-2.0 授权的代码之外，VaultCell 的其他部分——包括其名称、标识与设计——归 WANG GANG 所有，受著作权及其他法律保护。本条款仅授予你有限的、个人的、非独占且不可转让的使用许可，可在你拥有或控制的设备上使用本应用，并受 Apple EULA 约束。</p>
+  <p><strong>VaultCell 的名称、标识与设计。</strong>VaultCell——包括其名称、标识与设计——归 WANG GANG 所有，受著作权、商标及其他法律保护。你可以在陈述属实的前提下提及 VaultCell，但不得以暗示你的产品或服务出自我们、或经我们认可的方式使用我们的名称、标识或品牌设计。</p>
+  <p>本条款仅授予你有限的、个人的、非独占且不可转让的使用许可，可在你拥有或控制的设备上使用本应用，并受 Apple EULA 约束。</p>
 
   <h2 id="zh-third">8. 第三方服务</h2>
   <p>VaultCell 依赖 Apple 提供的服务——App Store、iCloud 与 CloudKit。你对这些服务的使用受 Apple 自身条款约束，而非本条款。对于 Apple 服务的中断、数据丢失或变更，我们不承担责任。若你的 Apple ID 地区为中国大陆，CloudKit 由云上贵州大数据产业发展有限公司运营。</p>
 
   <h2 id="zh-warranty">9. 免责声明</h2>
-  <p>VaultCell 是一款免费软件，按"现状"与"现有可用性"提供。在法律允许的最大范围内，我们不作任何明示或默示担保，包括关于适销性、特定用途适用性及不侵权的默示担保。我们不保证本应用不会中断、没有错误或不含有害成分。</p>
-  <p>你不该只是相信我们的说法。代码公开，正是为了让你——或你信任的人——能够亲自阅读并作出判断。在把无法承受失去的东西托付给 VaultCell 之前，请先这样做。</p>
+  <p>VaultCell 免费提供，按"现状"与"现有可用性"提供。在法律允许的最大范围内，我们不作任何明示或默示担保，包括关于适销性、特定用途适用性及不侵权的默示担保。我们不保证本应用不会中断、没有错误或不含有害成分。</p>
   <p>部分司法辖区不允许排除默示担保，在此情形下本节仅在该辖区允许范围内对你适用。</p>
 
   <h2 id="zh-liability">10. 责任限制</h2>
   <p>在法律允许的最大范围内，对于因你使用或无法使用 VaultCell 而产生的任何间接的、附带的、特殊的、后果性的或惩罚性的损害，或任何利润、收入、数据或商誉损失——包括保险库数据的丢失——我们不承担责任，即使我们已被告知该等可能性。</p>
-  <p>在责任无法排除的情形下，我们的累计赔偿责任上限为以下两者中较高者：(a) 事件发生前十二个月内你为 VaultCell 支付的费用；或 (b) <span class="fill">[[待填写：人民币 100 元／你所在司法辖区的法定下限]]</span>。</p>
+  <p>在责任无法排除的情形下，我们的累计赔偿责任上限为适用法律所允许的最低金额。VaultCell 免费提供，因此你支付的任何金额均不计入此项计算。</p>
   <p>本条款不限制任何适用法律下不可限制的责任，包括因过失导致的死亡或人身伤害的责任、欺诈责任，以及违反你法定消费者权益的责任。若你是欧洲经济区、英国、澳大利亚或新西兰的消费者，你仍享有居住国强制性消费者法律赋予的保护。</p>
 
   <h2 id="zh-termination">11. 终止与服务可用性</h2>
-  <p>你可随时删除应用以停止使用 VaultCell。若你希望同时删除 iCloud 中的加密副本，请使用 <span class="fill">[[待填写：设置 → 高级 → 从 iCloud 删除保险库]]</span>或通过 iCloud 设置移除——仅删除应用不会清除 iCloud 数据。</p>
+  <p>你可随时删除应用以停止使用 VaultCell。若你希望同时删除 iCloud 中的加密副本，请通过 iCloud 设置移除——仅删除应用不会清除 iCloud 数据。</p>
   <p>我们可能停止提供本应用或其部分功能。若如此，我们将在可行范围内提前合理通知，以便你导出数据。</p>
 
   <h2 id="zh-changes">12. 条款更新</h2>
-  <p>我们可能更新本条款。当前版本及其版本号、生效日期始终发布于此网址，历史版本保留于 <span class="fill">[[待填写：https://vaultcell.app/legal/archive/2026-09-17/terms.html]]</span>。若变更实质性地削减你的权利，我们将在应用内通知你，且变更不会追溯适用于你已付费的订阅周期。</p>
+  <p>我们可能更新本条款。当前版本及其版本号、生效日期始终发布于此网址。若变更实质性地削减你的权利，我们将在应用内通知你。变更自上方所示的生效日期起向前生效；VaultCell 不存在付费订阅周期，因此没有可追溯适用的部分。</p>
 
   <h2 id="zh-law">13. 准据法与争议解决</h2>
-  <p>本条款受中华人民共和国法律管辖，但不适用其冲突法规则。中华人民共和国<span class="fill">[[待填写：城市]]</span>法院具有专属管辖权，但下列情形除外：</p>
+  <p>本条款受中华人民共和国法律管辖，但不适用其冲突法规则。管辖权依适用法律确定，但下列情形除外：</p>
   <ul>
     <li>若你是欧洲经济区、英国、澳大利亚或新西兰的消费者，你可在你的居住国提起诉讼，并保留任何不可通过合同放弃的强制性消费者保护；</li>
     <li>本条款不剥夺你依据居住国强制性消费者或数据保护法律，向当地法院或监管机构提起主张或投诉的权利。</li>
@@ -388,16 +413,45 @@
   <p>我们更希望直接解决问题。在启动任何正式程序之前，请先联系我们并给予 30 日的处理期。</p>
 
   <h2 id="zh-contact">14. 联系我们</h2>
-  <p>关于本条款的疑问：<span class="fill">[[待填写：support@vaultcell.app]]</span></p>
-  <p>开发者：WANG GANG · <span class="fill">[[待填写：通信地址]]</span></p>
+  <p>关于本条款的疑问：<a href="mailto:support@vaultcell.app"><strong>support@vaultcell.app</strong></a>（欧洲经济区与英国以外）。欧洲经济区与英国用户：支持及本条款相关问题的解答，请见应用内及网站上的常见问题（FAQ）。</p>
+  <p>开发者：WANG GANG</p>
 </article>
 
 </main>
 
-<footer class="page">
-  <div class="foot-in">
-    <span>© 2026 WANG GANG · VaultCell</span>
-    <span><a href="/privacy.html">Privacy Policy / 隐私政策</a></span>
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="index.html">
+          <img class="logo-mark" src="assets/logo.png" alt="VaultCell icon" width="34" height="34" />
+          VaultCell
+        </a>
+        <p>A private vault with portable entries and icons that do not leak your site list.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Product</h4>
+        <a href="index.html#features">Features</a>
+        <a href="index.html#security">Security</a>
+        <a href="index.html#showcase">Screenshots</a>
+        <a href="index.html#download">Download</a>
+      </div>
+      <div class="foot-col">
+        <h4>Legal</h4>
+        <a href="terms.html">Terms of Use</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <a href="mailto:support@vaultcell.app">support@vaultcell.app</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 WANG GANG · VaultCell. All rights reserved.</span>
+      <div class="soc">
+        <a href="mailto:support@vaultcell.app" aria-label="Email"><i class="ph-fill ph-envelope-simple"></i></a>
+      </div>
+    </div>
   </div>
 </footer>
 

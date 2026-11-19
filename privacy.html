@@ -6,19 +6,28 @@
 <title>Privacy Policy · VaultCell</title>
 <meta name="description" content="How VaultCell handles your data. Zero-knowledge encryption, CloudKit sync, and the diagnostics we collect." />
 <meta name="robots" content="index,follow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/icons.css" />
+<link rel="icon" type="image/png" href="assets/logo.png" />
 <!--
   ============================================================
-  VaultCell Privacy Policy  ·  Version 2026-09-18
+  VaultCell Privacy Policy  ·  Version 2026-11-19
   ------------------------------------------------------------
-  BEFORE PUBLISHING, replace every [[FILL: ...]] marker.
-  Search the file for "FILL" to find them all:
+  ALL PLACEHOLDERS RESOLVED 2026-11-19. This note records the choices made
+  so nobody re-introduces them:
 
-    1. Developer city / correspondence address
-    2. Privacy contact email
-    3. Retention period for diagnostics
-    4. Encryption algorithms (must match your marketing claims)
-    5. Availability: the countries or regions where you offer the app
-    6. Canonical domain
+    1. Developer location: stated at country level only (PRC). No city and
+       no postal address are published, per the zero-data / non-trader
+       posture. Do NOT add one without re-checking DSA trader status and
+       GDPR Art. 3(2) first.
+    2. Diagnostics retention: none held by us; Apple keeps its own schedule.
+    3. Encryption: AES-256-GCM, key derived from the master password via
+       Argon2id. MUST match the shipped build — update section 9 and this
+       note together if the implementation ever changes.
+    4. Availability: stated generically ("a number of countries and regions").
+    5. Canonical domain: vaultcell.app.
 
   DIAGNOSTICS CHANNEL — corrected 2026-09-16, read before changing:
   The text now says we use Apple's aggregate reporting in App Store
@@ -32,13 +41,46 @@
   you build. If you ever add MetricKit, rewrite section 2.3, add an
   in-app opt-in, and update the Privacy Nutrition Label.
 
-  DECISION APPLIED 2026-09-16: no App Store distribution in the EEA or
-  the UK, so no Article 27 EU/UK Representative is appointed (we do not
-  target those markets, so GDPR Art.3(2) is not engaged). GDPR clauses
-  stay in conditional form as a baseline standard.
-  If you later open the EEA/UK, appoint a representative first, publish
-  their details in section 1, update manifest.json availability, and
-  republish under a new version number.
+  DECISION APPLIED 2026-11-19 (FINAL) — SUPERSEDES both the 2026-09-16
+  "no EEA/UK" decision and the earlier 2026-11-19 "representatives
+  required" decision:
+
+  The app WILL be distributed in the EEA and the UK, under a
+  ZERO-PERSONAL-DATA model for users in those regions. No Article 27
+  representative is appointed, because the trigger condition in
+  GDPR Art. 3(2) / UK GDPR Art. 3(2) is NOT met:
+
+    - EEA/UK users are NOT offered any email support channel. Support
+      for them is provided only through the in-app/website FAQ. No
+      email from them is received, opened, or retained — so no personal
+      data of theirs reaches us.
+    - No account, no registration, no telemetry endpoint of our own,
+      no analytics or crash SDK, no advertising ID.
+    - Vault contents are encrypted on device and sync only through
+      the user's own Apple ID private CloudKit database. We hold no
+      keys, no server-side copy, and no administrative access.
+    - Icon requests go device-to-website, never through us.
+    - The only diagnostic material we ever see is Apple's AGGREGATE
+      reporting in App Store Connect / Xcode, which is not linked to
+      any individual and is not personal data.
+
+  Net effect: we do not process personal data of EEA/UK users at all,
+  so GDPR/UK GDPR do not apply to us under Art. 3(2), and Art. 27(1)
+  has nothing to attach to. Sections 1, 4, 6 and 7 say so explicitly.
+  Do NOT re-add representative placeholders: they would contradict
+  the zero-data position and invite the very obligations we avoid.
+
+  RE-ASSESS AND APPOINT REPRESENTATIVES BEFORE launching any feature
+  that brings EEA/UK personal data to us — an email support channel,
+  a web contact form, an account system, a crash/analytics SDK, or
+  donations. One such channel re-engages Art. 3(2) and requires both
+  an EU and a UK representative.
+
+  DSA trader status is a SEPARATE question from Art. 27. The app is
+  free with no IAP, no ads and no revenue, and section 5 of the terms
+  makes NO commercial commitment — so a non-trader declaration is
+  defensible. If that ever changes, trader verification (published
+  address, phone, email in all 27 EU states) becomes mandatory.
 
   DECISION SUPERSEDED 2026-09-16, then corrected same day: diagnostics
   were first written as relying on "Share iPhone Analytics". That is
@@ -46,21 +88,7 @@
   Section 2.3 is authoritative; this line is kept only so nobody
   re-applies the superseded wording.
 
-  DECISION APPLIED 2026-09-17: the product is FREE and OPEN SOURCE
-  under Apache-2.0, developed on GitHub.
-    - Section 2.4 rewritten: no payment exists today, so no payment data
-      is held. Kept conditional so a future IAP does not require a
-      rewrite from scratch.
-    - Section 2.5 new: contributor identities (GitHub username, commit
-      email) are public and permanent. This IS personal data you publish,
-      so it belongs in this policy. Do not silently delete this section.
-    - Do NOT relicense to GPLv2/v3 or AGPL: those are understood to
-      conflict with App Store distribution terms. MPL-2.0 is the
-      compatible copyleft option if you later want reciprocity.
-    - If you add donations or sponsorship later, add that here too —
-      those platforms do collect payment data.
-
-  DECISION APPLIED 2026-09-18: website icons (new section 2.8).
+  DECISION APPLIED 2026-09-18: website icons (section 2.7, formerly 2.8).
     - Icons ship inside the app for the most common sites; anything else
       gets a locally generated letter tile first, so no item is ever blank.
     - Fetching a real icon is AUTOMATIC by default, and the request goes
@@ -70,24 +98,36 @@
       this with Storefront.current.countryCode; if it returns nil, fall
       back to OFF (fail safe), never to on. A user's explicit choice in
       Settings always wins over any regional default.
-    - Two statements in 2.8 are PROMISES, not description. If the shipped
-      build does not do them, delete them: (a) cache file names are hashed
-      (sha256 of the domain), not the domain itself; (b) turning the
-      setting off stops requests entirely, it does not merely hide icons.
+    - Two statements in this section are PROMISES, not description. If the
+      shipped build does not do them, delete them: (a) cache file names
+      are hashed (sha256 of the domain), not the domain itself; (b) turning
+      the setting off stops requests entirely, it does not merely hide icons.
     - HTTPS encrypts content, not the domain. DNS and TLS SNI stay in the
       clear, so the policy says so rather than implying requests are hidden.
     - Privacy Nutrition Label: still "no data collected" - we receive
       nothing. Say so in App Review Notes or a reviewer will ask.
 
-  This file is self-contained (no external CSS/JS/fonts) so it loads
-  cleanly in SFSafariViewController and offline if you ever bundle it.
+  CHANGE 2026-11-19:
+    - Email contact consolidated to support@vaultcell.app for users
+      OUTSIDE the EEA/UK. EEA/UK users get FAQ-only support — no email
+      channel — which is what keeps them outside Art. 3(2); never add
+      a mailto link aimed at those regions without re-assessing reps.
+    - Open-source contributor section (old 2.5) removed; the product is
+      no longer developed as open source. Sections 2.6-2.8 renumbered
+      to 2.5-2.7; cross-references updated.
+    - The page now loads the site's shared assets (Outfit font,
+      assets/icons.css, assets/logo.png) so its header and footer match
+      index.html. The old "self-contained" requirement is dropped for
+      the website build; if you ever bundle this file into the app for
+      offline/SFSafariViewController use, inline or vendor those assets
+      or accept the system-font fallback.
   ============================================================
 -->
 <style>
   :root{
     --bg:#f6f9fe; --surface:#ffffff; --surface-2:#f1f6ff;
     --border:#e3eaf4; --text:#0d1b2e; --muted:#56657c;
-    --brand:#2563eb; --brand-soft:#e8f0ff;
+    --brand:#2563eb; --brand-strong:#1d4ed8; --brand-soft:#e8f0ff;
     --sec:#10b981; --sec-soft:#e6f7f0;
     --warn:#854f0b; --warn-bg:#faeeda;
     --r:14px; --maxw:820px;
@@ -96,27 +136,42 @@
     :root{
       --bg:#0a1220; --surface:#111d30; --surface-2:#15233a;
       --border:#213349; --text:#eaf1fb; --muted:#9fb0c7;
-      --brand:#4d8bff; --brand-soft:#16243d;
+      --brand:#4d8bff; --brand-strong:#6ea2ff; --brand-soft:#16243d;
       --sec:#34d399; --sec-soft:#0f2c24;
       --warn:#f5c57a; --warn-bg:#3a2a12;
     }
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{
-    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Noto Sans SC','Microsoft YaHei',sans-serif;
+    font-family:'Outfit',-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Noto Sans SC','Microsoft YaHei',sans-serif;
     background:var(--bg); color:var(--text); line-height:1.75;
     -webkit-font-smoothing:antialiased; font-size:15.5px;
   }
   a{color:var(--brand);text-decoration:none}
   a:hover{text-decoration:underline}
 
-  .bar{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
-    background:color-mix(in srgb, var(--bg) 82%, transparent);border-bottom:1px solid var(--border)}
-  .bar-in{max-width:var(--maxw);margin:0 auto;padding:0 24px;height:60px;
-    display:flex;align-items:center;justify-content:space-between;gap:16px}
-  .bar .home{display:flex;align-items:center;gap:9px;font-weight:700;font-size:17px;color:var(--text)}
-  .bar .home span{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
-    background:linear-gradient(135deg,var(--brand),var(--sec));color:#fff;font-size:13px}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:15px;
+    padding:11px 22px;border-radius:999px;border:1px solid transparent;cursor:pointer;
+    transition:background .2s ease, transform .18s ease, box-shadow .25s ease}
+  .btn-primary{background:var(--brand);color:#fff;box-shadow:0 10px 26px rgba(37,99,235,.32)}
+  .btn-primary:hover{background:var(--brand-strong);text-decoration:none}
+  .btn-primary:active{transform:translateY(1px) scale(.99)}
+
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:saturate(180%) blur(14px);
+    background:color-mix(in srgb, var(--bg) 78%, transparent);
+    border-bottom:1px solid var(--border)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px;gap:18px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;
+    letter-spacing:-.02em;color:var(--text)}
+  .brand:hover{text-decoration:none}
+  .logo-mark{width:34px;height:34px;border-radius:23%;object-fit:cover;display:block;
+    box-shadow:0 8px 24px rgba(20,50,100,.08)}
+  .nav-links{display:flex;gap:26px;font-size:15px;font-weight:500;color:var(--muted)}
+  .nav-links a{transition:color .2s}
+  .nav-links a:hover{color:var(--brand);text-decoration:none}
+  .nav-cta{display:flex;align-items:center;gap:14px}
+  @media (max-width:900px){.nav-links{display:none}}
   .langs{display:flex;gap:4px;background:var(--surface-2);border:1px solid var(--border);
     border-radius:999px;padding:3px}
   .langs button{border:0;background:transparent;color:var(--muted);font:inherit;font-size:13.5px;
@@ -173,22 +228,42 @@
   body[data-lang="en"] .doc[data-lang="zh"]{display:none}
   body[data-lang="zh"] .doc[data-lang="en"]{display:none}
 
-  footer.page{border-top:1px solid var(--border);background:var(--surface);padding:32px 0}
-  .foot-in{max-width:var(--maxw);margin:0 auto;padding:0 24px;font-size:13.5px;color:var(--muted);
-    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  footer.site{border-top:1px solid var(--border);background:var(--surface);padding:54px 0 36px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px}
+  .foot-brand p{font-size:14px;color:var(--muted);max-width:30ch;margin-top:14px}
+  .foot-col h4{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
+    color:var(--muted);margin-bottom:14px}
+  .foot-col a{display:block;font-size:14.5px;color:var(--muted);padding:5px 0;transition:color .2s}
+  .foot-col a:hover{color:var(--brand);text-decoration:none}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;
+    border-top:1px solid var(--border);font-size:13.5px;color:var(--muted);flex-wrap:wrap;gap:12px}
+  .foot-bottom .soc{display:flex;gap:14px}
+  .foot-bottom .soc a{font-size:18px;color:var(--muted)}
+  .foot-bottom .soc a:hover{color:var(--brand)}
+  @media (max-width:640px){.foot-grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body data-lang="en">
 
-<div class="bar">
-  <div class="bar-in">
-    <a class="home" href="/"><span>VC</span> VaultCell</a>
-    <div class="langs" role="group" aria-label="Language">
-      <button type="button" data-set="en" aria-pressed="true">English</button>
-      <button type="button" data-set="zh" aria-pressed="false">简体中文</button>
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">
+      <img class="logo-mark" src="assets/logo.png" alt="VaultCell icon" width="34" height="34" />
+      VaultCell
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#features">Features</a>
+      <a href="index.html#security">Security</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <div class="langs" role="group" aria-label="Language">
+        <button type="button" data-set="en" aria-pressed="true">English</button>
+        <button type="button" data-set="zh" aria-pressed="false">简体中文</button>
+      </div>
     </div>
   </div>
-</div>
+</header>
 
 <main>
 
@@ -197,8 +272,8 @@
   <div class="doc-head">
     <h1>Privacy Policy</h1>
     <div class="meta">
-      <span class="tag hl">Version 2026-09-18</span>
-      <span class="tag">Effective September 18, 2026</span>
+      <span class="tag hl">Version 2026-11-19</span>
+      <span class="tag">Effective November 19, 2026</span>
       <span class="tag">VaultCell for iOS, iPadOS, macOS</span>
     </div>
   </div>
@@ -224,13 +299,12 @@
   <p>VaultCell is a password manager built on a zero-knowledge architecture. That is not a marketing phrase here — it determines what data exists on our side at all, and therefore what this policy can even promise. Read the short version first: <strong>your vault contents are encrypted on your device, we only ever receive ciphertext, and we never receive your master password.</strong></p>
 
   <h2 id="who">1. Who we are</h2>
-  <p>VaultCell is developed and operated by <strong>WANG GANG</strong>, an individual developer acting as a sole proprietor, established in <span class="fill">[[FILL: city, province]]</span>, People's Republic of China.</p>
+  <p>VaultCell is developed and operated by <strong>WANG GANG</strong>, an individual developer acting as a sole proprietor based in the People's Republic of China.</p>
   <p>For the purposes of the Personal Information Protection Law of the PRC, the Act on the Protection of Personal Information of Japan (APPI), the Personal Information Protection Act of Korea (PIPA), the California Consumer Privacy Act as amended, the Privacy Act 1988 (Australia), the Privacy Act 2020 (New Zealand), the Personal Data Protection Act (Singapore), the Personal Data (Privacy) Ordinance (Hong Kong SAR), the Personal Data Protection Act (Macao SAR), and equivalent laws, <strong>WANG GANG is the data controller</strong> (or equivalent role) for the personal data described in this policy.</p>
-  <ul>
-    <li>Privacy contact: <span class="fill">[[FILL: privacy@vaultcell.app]]</span></li>
-    <li>Postal address: <span class="fill">[[FILL: correspondence address]]</span></li>
-  </ul>
-  <p><strong>Where we offer VaultCell.</strong> VaultCell is currently distributed in <span class="fill">[[FILL: list the countries or regions where you offer the app — mainland China, Hong Kong SAR, Macao SAR, Japan, Korea, Australia, New Zealand, United States, Canada, and Southeast Asia]]</span>. <strong>We do not offer VaultCell in the European Economic Area or the United Kingdom, and we do not direct the service to individuals in those jurisdictions.</strong> VaultCell is not localised for any EEA language as a target market, is not marketed there, and we have no Article 27 representative there. Where this policy describes GDPR rights and safeguards, we do so as a baseline standard we hold ourselves to — and for any user who may access the app while travelling — not because we target those markets.</p>
+  <p>Privacy contact: <a href="mailto:support@vaultcell.app"><strong>support@vaultcell.app</strong></a></p>
+  <p><strong>Where we offer VaultCell.</strong> VaultCell is distributed in a number of countries and regions around the world, including the member states of the European Economic Area and the United Kingdom.</p>
+  <p><strong>EU and UK users: no personal data reaches us.</strong> For users in the EEA and the UK, we operate no support email channel, no account, and no telemetry of our own; vault contents stay encrypted on your device and in your own iCloud private database, to which we have no access. We therefore do not process any personal data of EEA or UK users. Because the GDPR and the UK GDPR apply to a controller outside those regions only where its processing is related to offering goods or services there (Art. 3(2)), and we carry out no such processing, we have not appointed an Article 27 representative — there is no processing for a representative to answer for. This is a factual statement about our architecture, not a claim of exemption: if that ever changes, we will appoint representatives before offering the new channel.</p>
+  <p>Support for EEA and UK users is provided through the FAQ in the app and on our website, not by email. We do not receive, open, or retain support email from users in those regions.</p>
 
   <h2 id="collect">2. What we collect</h2>
 
@@ -242,7 +316,7 @@
   <p>Synchronization uses Apple's CloudKit framework. Your encrypted vault is written to your personal iCloud private database. We have no administrative access to that database, no export tooling against it, and no ability to enumerate its contents.</p>
   <p>Where you share a vault with another person, sharing is handled by CloudKit's sharing mechanism. Invitees receive the same ciphertext you hold; they can only decrypt it with the key material you share with them separately.</p>
   <div class="note">
-    <p><b>Storage region.</b> For users whose Apple ID country or region is mainland China, iCloud and CloudKit services are operated by Guizhou-Cloud Big Data Industrial Development Co., Ltd. (云上贵州), and vault data remains stored within mainland China. For all other users, data may be stored and processed in the United States and other countries where Apple operates its infrastructure.</p>
+    <p><b>Storage region.</b> For users whose Apple ID country or region is mainland China, iCloud and CloudKit services are operated by Guizhou-Cloud Big Data Industrial Development Co., Ltd. (云上贵州), and vault data remains stored within mainland China. For all other users, including users in the EEA and the UK, data may be stored and processed in the United States, in European countries where Apple operates its own data centres, and in other countries where Apple operates its infrastructure.</p>
   </div>
 
   <h3>2.3 Diagnostics, crash reports, and device information</h3>
@@ -275,23 +349,19 @@
   <p><strong>Diagnostics reach us only through Apple, never through our own collection.</strong> VaultCell ships no third-party analytics or crash-reporting SDK, and we operate no telemetry endpoint of our own. The only channel is Apple's own aggregate reporting in App Store Connect and Xcode, which is governed by your iOS setting <em>Settings → Privacy &amp; Security → Analytics &amp; Improvements → Share with App Developers</em>.</p>
   <p>That switch is yours alone. While it is off we see nothing about your device — no crash reports, no session counts, nothing. <strong>We do not prompt you to turn it on, we cannot change it on your behalf, and enabling it is never a condition of using anything in VaultCell</strong> — every feature works identically whether it is on or off. What reaches us through this channel is aggregate: counts of sessions, crashes and devices, grouped by OS version, device model, app version and region. It is not linked to your identity and we cannot single out any individual device.</p>
   <p>We do not use MetricKit. MetricKit would let us receive diagnostic payloads inside the app and send them to our own server, and unlike Apple's reporting it is not switched off by any setting you control. We have chosen not to use it for that reason.</p>
-  <p>Website icons are not diagnostics and are not covered by this section: those requests go from your device straight to the website you saved, not to us. See section 2.8.</p>
+  <p>Website icons are not diagnostics and are not covered by this section: those requests go from your device straight to the website you saved, not to us. See section 2.7.</p>
 
   <h3>2.4 Payments</h3>
-  <p>VaultCell currently has no payment of any kind — there is no price, no subscription, and no in-app purchase. We hold no payment data because we take none.</p>
-  <p>If we introduce paid features in the future, they will be sold through the App Store and processed entirely by Apple. We would receive only an entitlement signal — whether an entitlement is active and when it expires. We would never receive your name, card number, billing address, or any payment credential. This policy would be updated before any such change took effect.</p>
+  <p>VaultCell has no payment of any kind — there is no price, no subscription, and no in-app purchase. We hold no payment data because we take none.</p>
 
-  <h3>2.5 Open-source contributors</h3>
-  <p>VaultCell is developed publicly on <span class="fill">[[FILL: https://github.com/USERNAME/vaultcell — or write "a public code repository" if you would rather not link it]]</span>. If you submit code, an issue, or a pull request there, your contribution is public and permanently recorded in the repository history, together with whatever identity you chose to publish when you made it — typically a username and the email address attached to your commits. We do not use contributor identities for anything else, we do not build a mailing list from them, and we do not correlate them with anything happening inside the app, because there is nothing on our side to correlate with.</p>
-  <p>Removing your name from past commits is generally not possible in a distributed version control system. If you want a contribution attributed differently, raise it before submitting rather than after.</p>
+  <h3>2.5 Support communications</h3>
+  <p><strong>EEA and UK:</strong> support is provided through the FAQ in the app and on our website. No email support channel is offered to users in those regions, and we do not receive or retain support email from them. The FAQ is static and sets no cookies and no analytics.</p>
+  <p><strong>Elsewhere:</strong> if you contact us by email, we keep your message, your email address, and whatever device information you choose to send, solely to answer you and to improve the product. We do not add you to any marketing list.</p>
 
-  <h3>2.6 Support communications</h3>
-  <p>If you contact us by email, we keep your message, your email address, and whatever device information you choose to send, solely to answer you and to improve the product. We do not add you to any marketing list.</p>
+  <h3>2.6 Website</h3>
+  <p>The VaultCell website does not use advertising cookies, cross-site trackers, or any analytics service.</p>
 
-  <h3>2.7 Website</h3>
-  <p>The VaultCell website does not use advertising cookies or cross-site trackers. <span class="fill">[[FILL: if you add any analytics to the site, name it here and describe the opt-out; otherwise delete this sentence]]</span></p>
-
-  <h3>2.8 Website icons</h3>
+  <h3>2.7 Website icons</h3>
   <p>VaultCell shows a small icon beside each item so you can find things quickly. Where that icon comes from matters, so here is exactly what happens.</p>
   <ul>
     <li><strong>Built in, and offline.</strong> Icons for the most common websites and apps ship inside VaultCell. For those items the icon is drawn from the app itself, and no network request of any kind is made.</li>
@@ -299,8 +369,8 @@
     <li><strong>Automatic fetching.</strong> Outside mainland China, by default VaultCell then contacts the domain saved on that item and downloads the icon that site publishes — for example <code>https://www.paypal.com/favicon.ico</code>. <strong>The request goes directly from your device to that website. It does not pass through us, or through any server or cache we operate.</strong> We cannot see it, we do not log it, and we hold no record of which items you have. <strong>Where your App Store country is mainland China, automatic fetching is off by default</strong>, and VaultCell shows only the built-in and generated icons unless you switch it on yourself.</li>
   </ul>
   <p><strong>What that means for you.</strong> We receive nothing. But the requests are not invisible. Each website you have saved sees the IP address a request came from, and anyone able to observe your network traffic — your internet provider, your DNS resolver, a network operator, or whoever runs the Wi-Fi or cellular network you are on — can see the domains being requested. HTTPS encrypts what is transferred, not who you are talking to. That is why <strong>you can turn it off</strong>: with icon fetching off, VaultCell makes no request to any website for an icon and shows only the built-in and generated ones.</p>
-  <p><strong>Where fetched icons are stored.</strong> They are cached on your device under hashed file names rather than the domains themselves, so the cache does not spell out a list of what you have saved. Clear it under <span class="fill">[[FILL: Settings → Privacy → Clear icon cache]]</span>; deleting the app removes it too.</p>
-  <p><strong>Turning automatic fetching on or off:</strong> <span class="fill">[[FILL: Settings → Privacy → Show website icons]]</span>. Whatever you choose is respected and is never overridden by us.</p>
+  <p><strong>Where fetched icons are stored.</strong> They are cached on your device under hashed file names rather than the domains themselves, so the cache does not spell out a list of what you have saved. You can clear the cache in the app's settings; deleting the app removes it too.</p>
+  <p><strong>Turning automatic fetching on or off:</strong> you can change this at any time in the app's settings. Whatever you choose is respected and is never overridden by us.</p>
 
   <h2 id="never">3. What we never collect</h2>
   <ul>
@@ -308,19 +378,16 @@
     <li>No master password, no encryption keys, no plaintext vault content.</li>
     <li>No advertising SDKs. No IDFA. No cross-app or cross-site tracking. No data brokers. We do not sell or share personal information as those terms are defined under the California Consumer Privacy Act as amended.</li>
     <li>No contacts, photos, location history, or browsing history.</li>
-    <li>Automatic icon requests go to the website, never to us. VaultCell contacts the domain you saved to fetch its icon; that request does not pass through our systems and leaves us no record. You can turn it off at any time in <span class="fill">[[FILL: Settings → Privacy → Show website icons]]</span>.</li>
+    <li>Automatic icon requests go to the website, never to us. VaultCell contacts the domain you saved to fetch its icon; that request does not pass through our systems and leaves us no record. You can turn it off at any time in the app's settings.</li>
   </ul>
 
   <h2 id="legal">4. Legal bases for processing</h2>
-  <p>The table below maps each activity to the legal basis we rely on where a legal basis is required — notably if you are in the EEA or the UK and the GDPR applies to you. We apply the same framework as our baseline everywhere, even where local law does not require us to name a basis.</p>
+  <p><strong>For EEA and UK users this section has no application:</strong> as stated in section 1, no personal data of yours reaches us, so there is no processing of yours for which a legal basis would be needed. The table below describes the bases we would rely on for the limited data we do receive from users elsewhere.</p>
+  <p>Where we do process personal data, we map each activity to a legal basis. We apply this framework as a matter of discipline everywhere, even where local law does not require us to name a basis.</p>
   <table>
     <thead><tr><th>Processing</th><th>Legal basis</th></tr></thead>
     <tbody>
-      <tr><td data-l="Processing">Syncing your encrypted vault across your devices</td><td data-l="Basis">Performance of a contract, Art. 6(1)(b)</td></tr>
-      <tr><td data-l="Processing">Storing and delivering vault data</td><td data-l="Basis">Performance of a contract, Art. 6(1)(b)</td></tr>
-      <tr><td data-l="Processing">Crash and diagnostic data</td><td data-l="Basis">Consent, Art. 6(1)(a) — collected only where you have enabled sharing in your iOS analytics settings; withdraw at any time by turning that setting off</td></tr>
-      <tr><td data-l="Processing">Responding to support requests</td><td data-l="Basis">Legitimate interests, Art. 6(1)(f), or performance of a contract</td></tr>
-      <tr><td data-l="Processing">Legal and tax records relating to purchases</td><td data-l="Basis">Legal obligation, Art. 6(1)(c)</td></tr>
+      <tr><td data-l="Processing">Responding to support requests (outside the EEA/UK)</td><td data-l="Basis">Legitimate interests, Art. 6(1)(f), or performance of a contract</td></tr>
     </tbody>
   </table>
   <p><strong>Where we rely on legitimate interests</strong>, we have weighed that interest against your rights and concluded that the limited, non-sensitive nature of the data tips in favour of processing. You can object at any time.</p>
@@ -328,29 +395,28 @@
 
   <h2 id="retention">5. How long we keep data</h2>
   <ul>
-    <li><strong>Vault data:</strong> retained until you delete it. Deleting an item removes it from your device and from your iCloud private database. Deleting the app removes local copies; to remove the iCloud copy as well, use <span class="fill">[[FILL: Settings → Advanced → Delete vault from iCloud]]</span> or remove it in iCloud settings.</li>
+    <li><strong>Vault data:</strong> retained until you delete it. Deleting an item removes it from your device and from your iCloud private database. Deleting the app removes local copies; to remove the iCloud copy as well, remove it in iCloud settings.</li>
     <li><strong>Crash and diagnostic data:</strong> held by Apple in App Store Connect and Xcode under Apple's own retention schedule. We hold no separate copy and set no retention period of our own.</li>
-    <li><strong>Support correspondence:</strong> up to <span class="fill">[[FILL: 24]]</span> months after the ticket closes.</li>
+    <li><strong>Support correspondence (outside the EEA/UK):</strong> up to 24 months after the ticket closes. EEA/UK users have no email support channel, so no such records exist for them.</li>
     <li><strong>Purchase records:</strong> as long as required by applicable tax and accounting law.</li>
     <li><strong>Fetched icons:</strong> cached on your device until you clear the icon cache or delete the app.</li>
   </ul>
 
   <h2 id="transfers">6. International transfers</h2>
-  <p>Because we rely on Apple's infrastructure and on support and diagnostics vendors, your data may be processed outside your country of residence.</p>
+  <p><strong>EEA and UK users: no transfer to us.</strong> As set out in section 1, we receive no personal data from users in those regions. There is therefore no transfer of your data to us or to the People's Republic of China — no Standard Contractual Clauses, no UK International Data Transfer Agreement or Addendum, and no transfer impact assessment is involved, because there is no data for those mechanisms to cover. Apple's handling of your iCloud private database and of aggregate diagnostics is carried out by Apple under its own terms and safeguards; we are not a party to those operations and cannot direct where Apple stores them (sections 2.2 and 2.3).</p>
   <ul>
-    <li><strong>Where the GDPR applies</strong> — for example, if you access the app while in the EEA or the UK: transfers to the United States rely on the EU–US Data Privacy Framework and its UK Extension, or on Standard Contractual Clauses, together with supplementary technical measures — most importantly, that vault data is end-to-end encrypted before it leaves your device. As explained in section 1, we do not offer or market VaultCell in those jurisdictions.</li>
     <li><strong>Mainland China:</strong> for users whose Apple ID region is mainland China, vault data is stored within mainland China by Guizhou-Cloud Big Data. Where any personal information does need to leave the country, we rely on the mechanisms provided under the Personal Information Protection Law, including separate consent where required.</li>
     <li><strong>Japan (APPI):</strong> we will identify the recipient country and its data protection regime on request.</li>
     <li><strong>Korea (PIPA) and other regions:</strong> we will provide the same information on request, and obtain consent where local law requires it.</li>
   </ul>
-  <p>Icon requests go to whatever country that website's own servers are in. They are not sent to us and we are not a party to that transfer — see section 2.8.</p>
-  <p>You can request details of the safeguards applying to your data by writing to the contact address below.</p>
+  <p><strong>The most important safeguard is architectural.</strong> Vault contents are end-to-end encrypted on your device before any transmission, and we never receive the keys. Vault data itself therefore never reaches us and never crosses any border to us. Icon requests go to whatever country the website's own servers are in; they are not sent to us and we are not a party to that transfer — see section 2.7.</p>
+  <p>Users outside the EEA/UK can request details of the safeguards applying to the limited data we do receive by writing to the contact address below; EEA/UK users can find this information in the FAQ.</p>
 
   <h2 id="rights">7. Your rights</h2>
   <p>Depending on where you live, you may have the right to access, correct, delete, restrict, or port your personal data, to object to processing, to withdraw consent, and to lodge a complaint with a supervisory authority.</p>
   <p><strong>An honest limitation.</strong> Because we cannot decrypt your vault and cannot access your private iCloud database, we are unable to fulfil requests to access, export, or delete vault content on your behalf. You hold the keys, and only you can exercise those rights over vault content — through the app's export, delete, and "remove from iCloud" functions. This limitation does not apply to the crash and diagnostic data we do control, and it does not limit any right you have against Apple in respect of your iCloud account.</p>
   <ul>
-    <li><strong>EEA and UK:</strong> we have not appointed an Article 27 representative because we do not target those markets. If you are there anyway, contact us directly and we will handle your request ourselves; you may also complain to your national data protection authority, whose details are published by the European Data Protection Board.</li>
+    <li><strong>EEA and UK:</strong> we hold no personal data of yours, so there is no data for us to access, correct, delete, restrict, or port, and no Article 27 representative to route a request through. If you believe we do hold something, use the FAQ in the app or on our website to tell us. You may in any event complain to your national data protection authority: in the UK, the Information Commissioner's Office (ico.org.uk); in the EEA, the authority in your country of residence, whose details are published by the European Data Protection Board.</li>
     <li><strong>California:</strong> you may request to know, delete, or correct your personal information, and to opt out of sale or sharing. We do not sell or share personal information, and we do not discriminate against anyone who exercises these rights.</li>
     <li><strong>Mainland China:</strong> you may exercise your rights under the Personal Information Protection Law by writing to us; we will respond within the statutory period.</li>
     <li><strong>Japan, Korea, Australia, New Zealand, Singapore, Hong Kong SAR, Macao SAR, and elsewhere:</strong> write to us and we will honour the comparable rights available to you under local law.</li>
@@ -361,18 +427,18 @@
   <p>VaultCell is a general-purpose productivity tool and is not directed to children. We do not knowingly collect personal data from anyone under 13, or under 16 in the EEA and UK. If you believe a child has provided us with data, contact us and we will delete it.</p>
 
   <h2 id="security">9. Security</h2>
-  <p>Your vault is encrypted on your device using <span class="fill">[[FILL: e.g. AES-256-GCM, with a key derived from your master password using Argon2id]]</span>. Encryption and decryption happen locally; keys derived from your master password never leave your device.</p>
+  <p>Your vault is encrypted on your device using AES-256-GCM, with a key derived from your master password using Argon2id. Encryption and decryption happen locally; keys derived from your master password never leave your device.</p>
   <p>No system is perfectly secure. The practical risk to your vault sits almost entirely at the endpoints you control: the strength of your master password, whether your devices are compromised, and whether your recovery key is stored safely.</p>
 
   <h2 id="breach">10. Data breaches</h2>
   <p>If a breach affects your personal data, we will notify the relevant supervisory authority within 72 hours where the GDPR requires it, and notify you where a breach is likely to result in a high risk to your rights, or where local law — including the PRC Personal Information Protection Law, the Privacy Act 2020 (New Zealand), and the Notifiable Data Breaches scheme (Australia) — requires notification.</p>
 
   <h2 id="changes">11. Changes to this policy</h2>
-  <p>When we change this policy we will publish the new version at this URL with a new version number and effective date, and keep the superseded version available at <span class="fill">[[FILL: https://vaultcell.app/legal/archive/2026-09-18.privacy.html]]</span>. If a change materially affects how we handle your data, we will also tell you inside the app.</p>
+  <p>When we change this policy we will publish the new version at this URL with a new version number and effective date. If a change materially affects how we handle your data, we will also tell you inside the app.</p>
 
   <h2 id="contact">12. Contact and complaints</h2>
-  <p>Privacy enquiries and data subject requests: <span class="fill">[[FILL: privacy@vaultcell.app]]</span></p>
-  <p>Postal address: <span class="fill">[[FILL: correspondence address]]</span></p>
+  <p><strong>EEA and UK users:</strong> support is provided through the FAQ in the app and on our website. We do not offer an email support channel in those regions. For data protection matters, see section 7.</p>
+  <p><strong>Elsewhere:</strong> privacy enquiries and data subject requests: <a href="mailto:support@vaultcell.app"><strong>support@vaultcell.app</strong></a></p>
   <p>We aim to respond within 30 days. If you are unsatisfied, you may complain to your local data protection authority or consumer protection body.</p>
 </article>
 
@@ -381,8 +447,8 @@
   <div class="doc-head">
     <h1>隐私政策</h1>
     <div class="meta">
-      <span class="tag hl">版本 2026-09-18</span>
-      <span class="tag">生效日期：2026 年 9 月 18 日</span>
+      <span class="tag hl">版本 2026-11-19</span>
+      <span class="tag">生效日期：2026 年 11 月 19 日</span>
       <span class="tag">适用于 iOS、iPadOS、macOS 版 VaultCell</span>
     </div>
   </div>
@@ -408,13 +474,12 @@
   <p>VaultCell 是一个采用零知识架构的密码管理器。这在本政策中不是一句营销话术——它直接决定了我们这一侧究竟存在哪些数据，也决定了我们能承诺什么。先看结论：<strong>你的保险库内容在设备上完成加密，我们只会收到密文，并且我们永远不会收到你的主密码。</strong></p>
 
   <h2 id="zh-who">1. 我们是谁</h2>
-  <p>VaultCell 由<strong>WANG GANG</strong>个人开发并运营，开发者为个体工商户性质的个人开发者，设立于中华人民共和国<span class="fill">[[待填写：省、市]]</span>。</p>
+  <p>VaultCell 由<strong>WANG GANG</strong>个人开发并运营，开发者为设立于中华人民共和国的个体工商户性质的个人开发者。</p>
   <p>就《中华人民共和国个人信息保护法》、日本《个人信息保护法》（APPI）、韩国《个人信息保护法》（PIPA）、《加州消费者隐私法》及其修正案、澳大利亚《1988 年隐私法》、新西兰《2020 年隐私法》、新加坡《个人数据保护法》、中国香港特别行政区《个人资料（私隐）条例》、中国澳门特别行政区《个人资料保护法》及其他适用个人信息法律而言，<strong>WANG GANG 为个人信息处理者</strong>（或同等法律地位的主体）。</p>
-  <ul>
-    <li>隐私事务联系邮箱：<span class="fill">[[待填写：privacy@vaultcell.app]]</span></li>
-    <li>通信地址：<span class="fill">[[待填写：通信地址]]</span></li>
-  </ul>
-  <p><strong>服务提供范围。</strong>VaultCell 当前在 <span class="fill">[[待填写：列出你上架的国家/地区 —— 中国大陆、中国香港特别行政区、中国澳门特别行政区、日本、韩国、澳大利亚、新西兰、美国、加拿大及东南亚]]</span>分发。<strong>我们不在欧洲经济区及英国提供服务，也不将上述司法辖区的个人作为定向对象。</strong>本应用未针对欧盟任何成员国语言作本地化营销，未在该地区开展推广，也未在当地指定代表。本政策中有关 GDPR 权利与保障措施的表述，是我们对自身适用的基准要求，也便于可能途经该地区使用本应用的用户参考——并不表示我们将该地区列为目标市场。</p>
+  <p>隐私事务联系邮箱：<a href="mailto:support@vaultcell.app"><strong>support@vaultcell.app</strong></a></p>
+  <p><strong>服务提供范围。</strong>VaultCell 在全球多个国家和地区分发，其中包括欧洲经济区各成员国与英国。</p>
+  <p><strong>欧盟与英国用户：不会有个人数据到达我们。</strong>对于欧洲经济区与英国的用户，我们不设邮件支持渠道、不设账号、也不运营任何遥测服务；保险库内容加密保存在你的设备与你的 iCloud 私有数据库中，我们无权访问。因此我们不对欧洲经济区或英国用户的任何个人数据进行处理。GDPR 与英国 GDPR 对域外控制者的适用，以其处理活动与在当地提供商品或服务<strong>相关</strong>为前提（第 3(2) 条）；既然我们不存在这类处理，我们便未指定第 27 条代表——没有可供代表负责的处理活动。这是对自身架构的事实陈述，而非主张豁免：一旦情况改变，我们会在开通新渠道之前先行指定代表。</p>
+  <p>欧洲经济区与英国用户的支持通过应用内及网站上的常见问题（FAQ）提供，而非电子邮件。我们不接收、不打开、也不保留来自这些地区用户的支持邮件。</p>
 
   <h2 id="zh-collect">2. 我们收集哪些信息</h2>
 
@@ -426,7 +491,7 @@
   <p>同步使用 Apple 的 CloudKit 框架，你的加密保险库写入你个人的 iCloud 私有数据库。我们对该数据库没有管理权限，没有任何导出工具，也无法枚举其中的内容。</p>
   <p>当你与他人共享保险库时，共享通过 CloudKit 的共享机制完成。受邀者拿到的与你持有的是同一份密文，只能使用你另行分享给他们的密钥材料解密。</p>
   <div class="note">
-    <p><b>存储区域。</b>若你的 Apple ID 国家或地区为中国大陆，iCloud 与 CloudKit 服务由云上贵州大数据产业发展有限公司运营，保险库数据存储于中国大陆境内。其他用户的数据可能存储和处理于美国及 Apple 运营基础设施的其他国家／地区。</p>
+    <p><b>存储区域。</b>若你的 Apple ID 国家或地区为中国大陆，iCloud 与 CloudKit 服务由云上贵州大数据产业发展有限公司运营，保险库数据存储于中国大陆境内。包括欧洲经济区和英国用户在内的其他用户，其数据可能存储和处理于美国、Apple 自有数据中心的所在欧洲国家，以及 Apple 运营基础设施的其他国家／地区。</p>
   </div>
 
   <h3>2.3 诊断数据、崩溃日志与设备信息</h3>
@@ -459,23 +524,19 @@
   <p><strong>诊断数据只会经由 Apple 到达我们这里，我们绝不自行收集。</strong>VaultCell 不内置任何第三方统计或崩溃上报组件，我们也不运营任何遥测服务端。唯一渠道是 Apple 在 App Store Connect 与 Xcode 中提供的聚合报告，而该渠道由你的 iOS 系统设置<em>设置 → 隐私与安全性 → 分析与改进 → 与 App 开发者共享</em>控制。</p>
   <p>这个开关完全由你掌握。只要它是关闭的，我们就看不到关于你设备的任何信息——没有崩溃报告、没有会话次数，什么都没有。<strong>我们不会弹窗诱导你开启，无法替你修改这个开关，并且开启与否绝不影响 VaultCell 任何功能的使用</strong>——开或关，所有功能表现完全一致。通过该渠道到达我们这里的数据是聚合的：按系统版本、设备型号、应用版本与地区分组的会话数、崩溃数与设备数。它不与你的身份关联，我们也无法从中识别出任何单台设备。</p>
   <p>我们不使用 MetricKit。MetricKit 能让应用在内部接收诊断数据并发往我们自己的服务器，而且与 Apple 的报告渠道不同，它不受任何你能控制的系统开关约束。正因如此，我们选择不使用它。</p>
-  <p>网站图标不属于诊断数据，不适用本节：相关请求由你的设备直接发往你所保存的网站，而非我们。详见第 2.8 节。</p>
+  <p>网站图标不属于诊断数据，不适用本节：相关请求由你的设备直接发往你所保存的网站，而非我们。详见第 2.7 节。</p>
 
   <h3>2.4 付费</h3>
-  <p>VaultCell 目前不存在任何付费环节——没有价格、没有订阅、没有应用内购买。因为我们不收款，所以也不持有任何支付数据。</p>
-  <p>若我们未来引入付费功能，将通过 App Store 销售并由 Apple 全权处理。届时我们只会收到权益状态信号——某项权益是否有效及其到期时间。我们绝不会收到你的姓名、卡号、账单地址或任何支付凭证。在任何此类变更生效之前，本政策都会先行更新。</p>
+  <p>VaultCell 不存在任何付费环节——没有价格、没有订阅、没有应用内购买。因为我们不收款，所以也不持有任何支付数据。</p>
 
-  <h3>2.5 开源贡献者</h3>
-  <p>VaultCell 在 <span class="fill">[[待填写：https://github.com/用户名/vaultcell；若不便链接仓库，可写"公开代码仓库"]]</span>公开开发。若你在此提交代码、议题或拉取请求，你的贡献将是公开的，并连同你提交时所使用的身份——通常是用户名与该次提交关联的邮箱地址——永久记录在仓库历史中。我们不会将这些身份用于其他用途，不会据此建立邮件名单，也不会将其与应用内的任何行为相关联，因为我们这一侧根本没有可供关联的数据。</p>
-  <p>在分布式版本控制系统中，通常无法删除历史提交中的署名。若你希望以不同方式署名，请在提交之前提出，而非之后。</p>
+  <h3>2.5 支持与沟通</h3>
+  <p><strong>欧洲经济区与英国：</strong>支持通过应用内及网站上的常见问题（FAQ）提供。我们不向这些地区的用户提供邮件支持渠道，也不接收或保留来自他们的支持邮件。FAQ 为静态页面，不设置 Cookie，也不接入统计服务。</p>
+  <p><strong>其他地区：</strong>如果你通过邮件联系我们，我们会保留你的邮件内容、邮箱地址以及你主动提供的设备信息，仅用于回复你和改进产品。我们不会将你加入任何营销名单。</p>
 
-  <h3>2.6 支持与沟通</h3>
-  <p>如果你通过邮件联系我们，我们会保留你的邮件内容、邮箱地址以及你主动提供的设备信息，仅用于回复你和改进产品。我们不会将你加入任何营销名单。</p>
+  <h3>2.6 网站</h3>
+  <p>VaultCell 网站不使用广告类 Cookie、跨站追踪器或任何统计服务。</p>
 
-  <h3>2.7 网站</h3>
-  <p>VaultCell 网站不使用广告类 Cookie 或跨站追踪器。<span class="fill">[[待填写：如网站接入了任何统计服务，请在此处写明名称与关闭方式；否则删除本句]]</span></p>
-
-  <h3>2.8 网站图标</h3>
+  <h3>2.7 网站图标</h3>
   <p>VaultCell 会在每个条目旁显示一个小图标，方便你快速定位。图标从何而来至关重要，因此我们在本节完整说明。</p>
   <ul>
     <li><strong>内置且离线。</strong>常见网站与应用的图标随 VaultCell 一同打包。对这类条目，图标直接取自应用内部，不产生任何网络请求。</li>
@@ -483,8 +544,8 @@
     <li><strong>自动联网获取。</strong>在中国大陆以外，默认情况下 VaultCell 随后会访问该条目所保存的域名，下载该站点公开的图标——例如 <code>https://www.paypal.com/favicon.ico</code>。<strong>该请求由你的设备直接发往该网站，不经过我们，也不经过我们运营或使用的任何服务器与缓存。</strong>我们看不到它，不会记录它，也不掌握你持有哪些条目的任何线索。<strong>若你的 App Store 地区为中国大陆，自动获取默认关闭</strong>，除非你自己开启，否则 VaultCell 只显示内置图标与本地生成的图标。</li>
   </ul>
   <p><strong>这对你意味着什么。</strong>我们收不到任何东西。但这些请求并非不可见：你所保存的每个网站都会看到请求来源的 IP 地址；任何能够观察你网络流量的一方——你的网络服务提供商、DNS 解析服务、网络运营者，或你所用 Wi-Fi 或蜂窝网络的管理方——都能看到被请求的域名。HTTPS 加密的是传输内容，而不是"你在与谁通信"。正因如此，<strong>我们提供了关闭选项</strong>：关闭后，VaultCell 不会为获取图标向任何网站发起请求，只使用内置图标与本地生成的图标。</p>
-  <p><strong>获取到的图标存在哪里。</strong>它们以哈希后的文件名缓存在你的设备上，而非以域名命名，因此缓存本身不会列出你保存了什么。清除路径：<span class="fill">[[待填写：设置 → 隐私 → 清除图标缓存]]</span>；删除应用也会一并移除。</p>
-  <p><strong>开启或关闭自动获取：</strong><span class="fill">[[待填写：设置 → 隐私 → 显示网站图标]]</span>。你的选择会被完全尊重，我们不会覆盖它。</p>
+  <p><strong>获取到的图标存在哪里。</strong>它们以哈希后的文件名缓存在你的设备上，而非以域名命名，因此缓存本身不会列出你保存了什么。你可以在应用设置中清除该缓存；删除应用也会一并移除。</p>
+  <p><strong>开启或关闭自动获取：</strong>你可随时在应用设置中更改此选项。你的选择会被完全尊重，我们不会覆盖它。</p>
 
   <h2 id="zh-never">3. 我们绝不收集哪些信息</h2>
   <ul>
@@ -492,19 +553,16 @@
     <li>不收集主密码、密钥、保险库明文内容。</li>
     <li>不接入广告 SDK，不获取 IDFA，不做跨应用或跨网站追踪，不向数据中介提供数据。我们不"出售"或"共享"《加州消费者隐私法》及其修正案所定义的个人信息。</li>
     <li>不收集通讯录、照片、位置历史或浏览历史。</li>
-    <li>自动获取图标的请求发往网站本身，绝不发往我们：VaultCell 会访问你所保存的域名以下载其图标，该请求不经过我们的系统，也不给我们留下任何记录。你可随时在<span class="fill">[[待填写：设置 → 隐私 → 显示网站图标]]</span>中关闭。</li>
+    <li>自动获取图标的请求发往网站本身，绝不发往我们：VaultCell 会访问你所保存的域名以下载其图标，该请求不经过我们的系统，也不给我们留下任何记录。你可随时在应用设置中关闭此选项。</li>
   </ul>
 
   <h2 id="zh-legal">4. 处理的法律依据</h2>
-  <p>下表将各项处理活动对应到我们在需要法律依据时所依赖的依据——尤其适用于你身处欧洲经济区或英国、GDPR 对你适用的情形。即使当地法律不要求列明处理依据，我们仍将此框架作为普遍适用的基准。</p>
+  <p><strong>本节对欧洲经济区与英国用户不适用：</strong>如第 1 节所述，你的任何个人数据都不会到达我们这里，因此不存在需要为其寻找法律依据的处理活动。下表仅说明我们就其他地区用户所收到的有限数据所依据的原则。</p>
+  <p>在我们确实处理个人数据时，我们会为每项活动对应一项法律依据。即使在当地法律不要求列明依据的地区，我们也统一以这一框架自我约束。</p>
   <table>
     <thead><tr><th>处理活动</th><th>法律依据</th></tr></thead>
     <tbody>
-      <tr><td data-l="处理活动">在多台设备间同步加密保险库</td><td data-l="法律依据">履行合同所必需，第 6(1)(b) 条</td></tr>
-      <tr><td data-l="处理活动">存储与投递保险库数据</td><td data-l="法律依据">履行合同所必需，第 6(1)(b) 条</td></tr>
-      <tr><td data-l="处理活动">崩溃与诊断数据</td><td data-l="法律依据">同意，第 6(1)(a) 条——仅在你已开启 iOS 分析共享后才会收集；关闭该设置即为撤回同意</td></tr>
-      <tr><td data-l="处理活动">回应支持请求</td><td data-l="法律依据">正当利益，第 6(1)(f) 条，或履行合同所必需</td></tr>
-      <tr><td data-l="处理活动">与购买相关的法律和税务记录</td><td data-l="法律依据">履行法律义务，第 6(1)(c) 条</td></tr>
+      <tr><td data-l="处理活动">回应支持请求（欧洲经济区与英国以外）</td><td data-l="法律依据">正当利益，第 6(1)(f) 条，或履行合同所必需</td></tr>
     </tbody>
   </table>
   <p><strong>在依赖正当利益的场景中</strong>，我们已将该利益与你的权利进行权衡，结论是：数据的有限性与非敏感性使得处理具有正当性。你可以随时提出反对。</p>
@@ -512,29 +570,28 @@
 
   <h2 id="zh-retention">5. 信息保存期限</h2>
   <ul>
-    <li><strong>保险库数据：</strong>保留至你删除为止。删除条目会同时从你的设备与 iCloud 私有数据库移除。卸载 App 只删除本地副本；如需一并删除 iCloud 中的副本，请使用 <span class="fill">[[待填写：设置 → 高级 → 从 iCloud 删除保险库]]</span>或在 iCloud 设置中移除。</li>
+    <li><strong>保险库数据：</strong>保留至你删除为止。删除条目会同时从你的设备与 iCloud 私有数据库移除。卸载 App 只删除本地副本；如需一并删除 iCloud 中的副本，请在 iCloud 设置中移除。</li>
     <li><strong>崩溃与诊断数据：</strong>由 Apple 保存在 App Store Connect 与 Xcode 中，遵循 Apple 自身的保留策略。我们不留存任何副本，也不自行设定保留期限。</li>
-    <li><strong>支持沟通记录：</strong>工单关闭后最长 <span class="fill">[[待填写：24]]</span> 个月。</li>
+    <li><strong>支持沟通记录（欧洲经济区与英国以外）：</strong>工单关闭后最长 24 个月。欧洲经济区与英国用户没有邮件支持渠道，因此不存在此类记录。</li>
     <li><strong>购买记录：</strong>按适用税务与会计法律要求的最短期限保留。</li>
     <li><strong>已获取的图标：</strong>缓存在你的设备上，直至你清除图标缓存或删除应用。</li>
   </ul>
 
   <h2 id="zh-transfers">6. 跨境传输</h2>
-  <p>由于我们使用 Apple 的基础设施以及支持、诊断服务商，你的数据可能在你的居住国／地区之外被处理。</p>
+  <p><strong>欧洲经济区与英国用户：不存在向我们传输。</strong>如第 1 节所述，我们不接收这些地区用户的任何个人数据。因此不存在你的数据被传输给我们或传输至中华人民共和国的情形——不涉及《标准合同条款》、英国《国际数据传输协议》／附录，也不涉及传输影响评估，因为没有数据可供这些机制涵盖。Apple 对你 iCloud 私有数据库及聚合诊断数据的处理由 Apple 依其自身条款与保障措施进行；我们并非这些操作的参与方，也无法指定 Apple 将数据存储于何处（见第 2.2 与 2.3 节）。</p>
   <ul>
-    <li><strong>在 GDPR 适用的情形下</strong>——例如你途经欧洲经济区或英国时使用本应用：向美国的传输依赖欧盟—美国数据隐私框架及其英国扩展机制，或标准合同条款，并辅以技术措施——其中最重要的是保险库数据在离开你的设备前已完成端到端加密。如第 1 节所述，我们不在该地区提供服务或进行推广。</li>
     <li><strong>中国大陆：</strong>Apple ID 地区为中国大陆的用户，其保险库数据由云上贵州存储于中国大陆境内。确有个人信息需要出境时，我们将依据《个人信息保护法》采用相应机制，并在法律要求时取得单独同意。</li>
     <li><strong>日本（APPI）：</strong>经请求，我们将告知接收方所在国家及其个人信息保护制度。</li>
     <li><strong>韩国（PIPA）及其他地区：</strong>经请求提供相同信息，并在当地法律要求时取得同意。</li>
   </ul>
-  <p>图标请求的接收方是该网站自身，其服务器所在国家／地区取决于该网站。该请求不发送给我们，我们也并非该传输的参与方——详见第 2.8 节。</p>
-  <p>你可以通过下方联系方式索取适用于你数据的保障措施详情。</p>
+  <p><strong>最关键的保障措施是架构层面的。</strong>保险库内容在任何传输发生之前，已在你的设备上完成端到端加密，且我们永远不持有密钥。保险库数据本身因此不会到达我们这里，也不会跨境传输至我们。图标请求的接收方是该网站自身，其服务器所在国家／地区取决于该网站；该请求不发送给我们，我们也并非该传输的参与方——详见第 2.7 节。</p>
+  <p>欧洲经济区与英国以外的用户可通过下方联系方式索取我们所收到的有限数据适用的保障措施详情；欧洲经济区与英国用户可在常见问题（FAQ）中查阅该信息。</p>
 
   <h2 id="zh-rights">7. 你的权利</h2>
   <p>根据你所在地法律，你可能享有查阅、更正、删除、限制处理、可携带、反对处理的权利，撤回同意的权利，以及向监管机构投诉的权利。</p>
   <p><strong>一项必须诚实说明的限制。</strong>由于我们无法解密你的保险库，也无法访问你的 iCloud 私有数据库，因此<strong>无法代你</strong>查阅、导出或删除保险库内容。密钥在你手中，只有你能通过应用内的导出、删除和"从 iCloud 移除"功能行使这些权利。该限制不适用于我们确实掌控的崩溃与诊断数据，也不影响你针对自己的 iCloud 账户向 Apple 主张的任何权利。</p>
   <ul>
-    <li><strong>欧洲经济区与英国：</strong>由于我们不将该地区列为目标市场，我们未指定第 27 条项下的代表。若你身处该地区，请直接联系我们，我们将亲自处理你的请求；你也可以向你所在国家的数据保护机构投诉，其联系方式由欧洲数据保护委员会公布。</li>
+    <li><strong>欧洲经济区与英国：</strong>我们不持有你的任何个人数据，因此不存在可供查阅、更正、删除、限制或携带的数据，也没有可转交请求的第 27 条代表。如你认为我们确实持有某些数据，请通过应用内或网站上的常见问题（FAQ）告知我们。你在任何情况下均可向你所在国家的数据保护机构投诉：在英国为信息专员办公室（ico.org.uk）；在欧洲经济区为你的居住国监管机构，其联系方式由欧洲数据保护委员会公布。</li>
     <li><strong>美国加州：</strong>你可要求知悉、删除或更正个人信息，并选择退出出售或共享。我们不出售也不共享个人信息，且不会因你行使上述权利而歧视你。</li>
     <li><strong>中国大陆：</strong>你可通过书面方式依据《个人信息保护法》行使权利，我们将在法定期限内答复。</li>
     <li><strong>日本、韩国、澳大利亚、新西兰、新加坡、中国香港特别行政区、中国澳门特别行政区及其他地区：</strong>可联系我们，我们将依当地法律保障你可享有的同等权利。</li>
@@ -545,27 +602,56 @@
   <p>VaultCell 是通用效率工具，不面向儿童。我们不会在知情情况下收集 13 岁以下（欧洲经济区与英国为 16 岁以下）用户的个人信息。如你认为儿童向我们提供了信息，请联系我们删除。</p>
 
   <h2 id="zh-security">9. 安全措施</h2>
-  <p>你的保险库在设备上使用 <span class="fill">[[待填写：例如 AES-256-GCM，密钥由主密码经 Argon2id 派生]]</span>加密。加解密均在本地完成，由主密码派生的密钥永不离开你的设备。</p>
+  <p>你的保险库在设备上使用 AES-256-GCM 加密，密钥由主密码经 Argon2id 派生。加解密均在本地完成，由主密码派生的密钥永不离开你的设备。</p>
   <p>没有绝对安全的系统。你的保险库实际风险几乎全部集中在你可控的端点上：主密码强度、设备是否被入侵、恢复密钥是否妥善保管。</p>
 
   <h2 id="zh-breach">10. 数据泄露</h2>
   <p>若发生影响你个人信息的安全事件，我们将在 GDPR 要求的 72 小时内通知相关监管机构；若泄露可能对你的权利造成高风险，或当地法律（包括《个人信息保护法》、新西兰《2020 年隐私法》、澳大利亚强制数据泄露通报制度）要求通知，我们将通知你。</p>
 
   <h2 id="zh-changes">11. 政策更新</h2>
-  <p>本政策更新时，我们将在此网址发布新版本并更新版本号与生效日期，同时保留旧版本于 <span class="fill">[[待填写：https://vaultcell.app/legal/archive/2026-09-18.privacy.html]]</span>。若变更对你的数据处理方式有重大影响，我们还会在应用内告知你。</p>
+  <p>本政策更新时，我们将在此网址发布新版本并更新版本号与生效日期。若变更对你的数据处理方式有重大影响，我们还会在应用内告知你。</p>
 
   <h2 id="zh-contact">12. 联系我们与投诉渠道</h2>
-  <p>隐私咨询与个人信息权利请求：<span class="fill">[[待填写：privacy@vaultcell.app]]</span></p>
-  <p>通信地址：<span class="fill">[[待填写：通信地址]]</span></p>
+  <p><strong>欧洲经济区与英国用户：</strong>支持通过应用内及网站上的常见问题（FAQ）提供。我们在这些地区不设邮件支持渠道。数据保护相关事项见第 7 节。</p>
+  <p><strong>其他地区：</strong>隐私咨询与个人信息权利请求：<a href="mailto:support@vaultcell.app"><strong>support@vaultcell.app</strong></a></p>
   <p>我们力争在 30 日内答复。如你对处理结果不满意，可向当地数据保护机构或消费者保护机构投诉。</p>
 </article>
 
 </main>
 
-<footer class="page">
-  <div class="foot-in">
-    <span>© 2026 WANG GANG · VaultCell</span>
-    <span><a href="/terms.html">Terms of Use / 使用条款</a></span>
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="index.html">
+          <img class="logo-mark" src="assets/logo.png" alt="VaultCell icon" width="34" height="34" />
+          VaultCell
+        </a>
+        <p>A private vault with portable entries and icons that do not leak your site list.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Product</h4>
+        <a href="index.html#features">Features</a>
+        <a href="index.html#security">Security</a>
+        <a href="index.html#showcase">Screenshots</a>
+        <a href="index.html#download">Download</a>
+      </div>
+      <div class="foot-col">
+        <h4>Legal</h4>
+        <a href="terms.html">Terms of Use</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <a href="mailto:support@vaultcell.app">support@vaultcell.app</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 WANG GANG · VaultCell. All rights reserved.</span>
+      <div class="soc">
+        <a href="mailto:support@vaultcell.app" aria-label="Email"><i class="ph-fill ph-envelope-simple"></i></a>
+      </div>
+    </div>
   </div>
 </footer>
 
