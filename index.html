@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>VaultCell · A private iPhone vault with passkeys you can take with you</title>
-<meta name="description" content="VaultCell stores passwords, passkeys, cards, and notes in an encrypted vault on your iPhone. Import and export passkeys with FIDO CXP/CXF, and keep your site list out of icon servers." />
+<meta name="description" content="VaultCell stores passwords, passkeys, cards, and notes in an encrypted vault on your iPhone. Import and export passkeys with FIDO CXP/CXF, audit email and phone dependencies, and keep your site list out of icon servers." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -126,6 +126,9 @@
   .c-sec{background:var(--sec-soft);color:var(--sec)}
   .c-mix{background:linear-gradient(135deg,var(--brand-soft),var(--sec-soft));color:var(--brand)}
   .span2{grid-column:span 2}
+  .span3{grid-column:span 3}
+  .span6{grid-column:span 6}
+  .audit-card{background:linear-gradient(135deg,var(--surface),var(--surface-2));border-color:color-mix(in srgb,var(--brand) 24%,var(--border))}
   .feature-hero{background:linear-gradient(135deg,var(--brand),#1e9e6a);color:#fff;grid-column:span 3;position:relative;overflow:hidden}
   .feature-hero.sec-hero{background:linear-gradient(135deg,#0f9f6e,#059669)}
   .feature-hero .bic{background:rgba(255,255,255,.18);color:#fff}
@@ -194,14 +197,15 @@
     .hero-grid{grid-template-columns:1fr;gap:54px}
     .phone-stage{order:2}
     .bento{grid-template-columns:repeat(2,1fr)}
-    .span2,.feature-hero{grid-column:span 2}
+    .span2,.span6,.feature-hero{grid-column:span 2}
+    .span3{grid-column:span 1}
     .flow{grid-template-columns:repeat(2,1fr)}
     .foot-grid{grid-template-columns:1fr 1fr}
     .nav-links{display:none}
   }
   @media (max-width:560px){
     .bento{grid-template-columns:1fr}
-    .span2,.feature-hero{grid-column:span 1}
+    .span2,.span6,.feature-hero{grid-column:span 1}
     .flow{grid-template-columns:1fr}
     .foot-grid{grid-template-columns:1fr 1fr}
     section.block{padding:64px 0}
@@ -237,7 +241,7 @@
     <div class="hero-copy reveal">
       <span class="eyebrow"><i class="ph-fill ph-key"></i> Private vault, portable passkeys</span>
       <h1>Your vault stays private.<br><span class="grad">Your passkeys stay portable.</span></h1>
-      <p class="lead">VaultCell keeps passwords, passkeys, cards, and notes encrypted on your iPhone. Import and export passkeys with FIDO CXP/CXF, and even site icons are handled without handing over your site list.</p>
+      <p class="lead">VaultCell keeps passwords, passkeys, cards, and notes encrypted on your iPhone. Import and export passkeys with FIDO CXP/CXF, audit the email addresses and phone numbers your entries depend on, and keep site icons away from our servers.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#download"><i class="ph-fill ph-arrow-down"></i> Get VaultCell</a>
         <a class="btn btn-ghost" href="#features">See what makes it different <i class="ph-fill ph-arrow-right"></i></a>
@@ -261,7 +265,8 @@
     <span class="chip"><i class="ph-fill ph-eye-slash"></i> Icons never touch our server</span>
     <span class="chip"><i class="ph-fill ph-lock"></i> AES-256 on device</span>
     <span class="chip"><i class="ph-fill ph-wifi-slash"></i> Works offline</span>
-    <span class="chip"><i class="ph-fill ph-folder-open"></i> No account, no cloud copy</span>
+    <span class="chip"><i class="ph-fill ph-folder-open"></i> Email and phone dependency audit</span>
+    <span class="chip"><i class="ph-fill ph-lock"></i> No account, no cloud copy</span>
   </div>
 </div>
 
@@ -270,7 +275,7 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <h2>Built for the parts other managers gloss over</h2>
-      <p>Encryption is table stakes. VaultCell focuses on two details that usually get ignored: taking your passkeys with you, and keeping your site list out of someone else's logs.</p>
+      <p>Encryption is table stakes. VaultCell focuses on three details that usually get ignored: taking your passkeys with you, keeping your site list out of someone else's logs, and showing what depends on an email address or phone number before you give it up.</p>
     </div>
     <div class="bento">
       <div class="bcell feature-hero reveal">
@@ -286,22 +291,28 @@
         <i class="ph-fill ph-eye-slash ghost-ic"></i>
       </div>
 
-      <div class="bcell span2 reveal">
+      <div class="bcell span6 reveal audit-card">
+        <span class="bic c-mix"><i class="ph-fill ph-folder-open"></i></span>
+        <h3>Know what breaks before you close an account</h3>
+        <p>VaultCell audits the email addresses and phone numbers used across your vault. Before you close an inbox or give up a number, see exactly which entries depend on it and what you need to update first. The audit runs locally, with no lookup against our servers.</p>
+      </div>
+
+      <div class="bcell span3 reveal">
         <span class="bic c-brand"><i class="ph-fill ph-cursor-click"></i></span>
         <h3>AutoFill without an account</h3>
         <p>Fill logins and one-time codes in apps and browsers. Everything runs locally on your iPhone.</p>
       </div>
-      <div class="bcell span2 reveal">
+      <div class="bcell span3 reveal">
         <span class="bic c-mix"><i class="ph-fill ph-magic-wand"></i></span>
         <h3>Generate a password in place</h3>
         <p>Create a unique password when you need one, then save it straight into the vault.</p>
       </div>
-      <div class="bcell span2 reveal">
+      <div class="bcell span3 reveal">
         <span class="bic c-sec"><i class="ph-fill ph-shield-check"></i></span>
         <h3>Encrypted before it is stored</h3>
         <p>AES-256 encryption happens on device. There is no server-side copy of your vault.</p>
       </div>
-      <div class="bcell span2 reveal">
+      <div class="bcell span3 reveal">
         <span class="bic c-brand"><i class="ph-fill ph-warning-circle"></i></span>
         <h3>Checks that stay on device</h3>
         <p>Spot weak, reused, and 2FA-missing entries without uploading your vault for a report.</p>
@@ -379,8 +390,8 @@
       <div class="flow-step reveal">
         <span class="num">4</span>
         <div class="fic"><i class="ph-fill ph-folder-open"></i></div>
-        <h3>Passkeys can leave with you</h3>
-        <p>FIDO CXP/CXF import and export means your credentials are not held hostage by one app.</p>
+        <h3>A change you can plan for</h3>
+        <p>Email and phone audits show which entries depend on an asset before you close it, so losing an inbox does not silently cost you access.</p>
       </div>
     </div>
   </div>
@@ -411,6 +422,10 @@
       <details class="reveal" open>
         <summary>Can I take my passkeys to another manager?<i class="ph-fill ph-plus"></i></summary>
         <div class="ans">Yes. VaultCell supports FIDO CXP/CXF import and export, so passkeys can move between services that support the standard. They are not trapped in VaultCell.</div>
+      </details>
+      <details class="reveal">
+        <summary>What happens if I close an email account or change my phone number?<i class="ph-fill ph-plus"></i></summary>
+        <div class="ans">VaultCell audits the email addresses and phone numbers referenced in your vault and shows which entries depend on each one. You can update those entries before you lose the inbox or number, instead of finding out when a recovery code lands somewhere you no longer control.</div>
       </details>
       <details class="reveal">
         <summary>What if I forget my master password?<i class="ph-fill ph-plus"></i></summary>
