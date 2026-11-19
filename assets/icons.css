@@ -43,23 +43,20 @@
 .ph-fill.ph-arrow-right:before {
   content: "\e06c";
 }
+.ph-fill.ph-arrows-left-right:before {
+  content: "\e0a0";
+}
 .ph-fill.ph-cursor-click:before {
   content: "\e7c8";
 }
 .ph-fill.ph-database:before {
   content: "\e1de";
 }
-.ph-fill.ph-device-mobile:before {
-  content: "\e1e0";
-}
 .ph-fill.ph-envelope-simple:before {
   content: "\e218";
 }
 .ph-fill.ph-eye-slash:before {
   content: "\e224";
-}
-.ph-fill.ph-fingerprint:before {
-  content: "\e23e";
 }
 .ph-fill.ph-folder-open:before {
   content: "\e256";
@@ -75,9 +72,6 @@
 }
 .ph-fill.ph-lock-key:before {
   content: "\e2fe";
-}
-.ph-fill.ph-lock-key-open:before {
-  content: "\e300";
 }
 .ph-fill.ph-magic-wand:before {
   content: "\e6b6";
