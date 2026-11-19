@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>VaultCell · The encrypted vault for everything you keep</title>
-<meta name="description" content="VaultCell keeps your passwords, cards, and notes in an AES-256 encrypted vault that lives only on your iPhone. Offline, zero-knowledge, and only you hold the key." />
+<title>VaultCell · A private iPhone vault with passkeys you can take with you</title>
+<meta name="description" content="VaultCell stores passwords, passkeys, cards, and notes in an encrypted vault on your iPhone. Import and export passkeys with FIDO CXP/CXF, and keep your site list out of icon servers." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -126,7 +126,8 @@
   .c-sec{background:var(--sec-soft);color:var(--sec)}
   .c-mix{background:linear-gradient(135deg,var(--brand-soft),var(--sec-soft));color:var(--brand)}
   .span2{grid-column:span 2}
-  .feature-hero{background:linear-gradient(135deg,var(--brand),#1e9e6a);color:#fff;grid-column:span 4;position:relative;overflow:hidden}
+  .feature-hero{background:linear-gradient(135deg,var(--brand),#1e9e6a);color:#fff;grid-column:span 3;position:relative;overflow:hidden}
+  .feature-hero.sec-hero{background:linear-gradient(135deg,#0f9f6e,#059669)}
   .feature-hero .bic{background:rgba(255,255,255,.18);color:#fff}
   .feature-hero h3{color:#fff}
   .feature-hero p{color:rgba(255,255,255,.88)}
@@ -234,14 +235,14 @@
   <div class="hero-bg"><span class="blob b1"></span><span class="blob b2"></span></div>
   <div class="wrap hero-grid">
     <div class="hero-copy reveal">
-      <span class="eyebrow"><i class="ph-fill ph-shield-check"></i> Zero-knowledge password manager</span>
-      <h1>Your private vault,<br><span class="grad">holding every secret you keep</span></h1>
-      <p class="lead">VaultCell locks your passwords, cards, and notes inside an AES-256 encrypted vault that lives only on your iPhone. No account, no cloud, and only your key can open it.</p>
+      <span class="eyebrow"><i class="ph-fill ph-key"></i> Private vault, portable passkeys</span>
+      <h1>Your vault stays private.<br><span class="grad">Your passkeys stay portable.</span></h1>
+      <p class="lead">VaultCell keeps passwords, passkeys, cards, and notes encrypted on your iPhone. Import and export passkeys with FIDO CXP/CXF, and even site icons are handled without handing over your site list.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#download"><i class="ph-fill ph-arrow-down"></i> Get VaultCell</a>
-        <a class="btn btn-ghost" href="#security">See how it protects you <i class="ph-fill ph-arrow-right"></i></a>
+        <a class="btn btn-ghost" href="#features">See what makes it different <i class="ph-fill ph-arrow-right"></i></a>
       </div>
-      <div class="hero-note"><i class="ph-fill ph-lock-key"></i> No account required to start. Your data stays yours.</div>
+      <div class="hero-note"><i class="ph-fill ph-lock-key"></i> No account. No cloud copy. No icon server watching your vault.</div>
     </div>
 
     <!-- real App screenshot inside a phone frame -->
@@ -256,10 +257,11 @@
 <!-- TRUST STRIP -->
 <div class="strip">
   <div class="wrap strip-inner reveal">
-    <span class="chip"><i class="ph-fill ph-lock"></i> AES-256 encryption</span>
-    <span class="chip"><i class="ph-fill ph-eye-slash"></i> Zero-knowledge architecture</span>
+    <span class="chip"><i class="ph-fill ph-key"></i> FIDO CXP/CXF passkey import and export</span>
+    <span class="chip"><i class="ph-fill ph-eye-slash"></i> Icons never touch our server</span>
+    <span class="chip"><i class="ph-fill ph-lock"></i> AES-256 on device</span>
     <span class="chip"><i class="ph-fill ph-wifi-slash"></i> Works offline</span>
-    <span class="chip"><i class="ph-fill ph-folder-open"></i> Open data format</span>
+    <span class="chip"><i class="ph-fill ph-folder-open"></i> No account, no cloud copy</span>
   </div>
 </div>
 
@@ -267,36 +269,42 @@
 <section class="block" id="features">
   <div class="wrap">
     <div class="sec-head reveal">
-      <h2>Everything your secrets need, in one place</h2>
-      <p>Not just another password book. VaultCell folds saving, generating, auto-filling, and health checks into one vault you fully control.</p>
+      <h2>Built for the parts other managers gloss over</h2>
+      <p>Encryption is table stakes. VaultCell focuses on two details that usually get ignored: taking your passkeys with you, and keeping your site list out of someone else's logs.</p>
     </div>
     <div class="bento">
       <div class="bcell feature-hero reveal">
-        <span class="bic"><i class="ph-fill ph-shield-check"></i></span>
-        <h3>Zero-knowledge means we see nothing</h3>
-        <p>All data is encrypted on your device and never leaves it. Keys are never uploaded, so even we can't read your content. Privacy isn't a promise here, it's the architecture.</p>
-        <i class="ph-fill ph-shield-check ghost-ic"></i>
+        <span class="bic"><i class="ph-fill ph-key"></i></span>
+        <h3>Passkeys you can actually take with you</h3>
+        <p>Import and export passkeys with FIDO CXP/CXF instead of locking them inside one provider. Switching managers should not mean starting over.</p>
+        <i class="ph-fill ph-key ghost-ic"></i>
       </div>
-      <div class="bcell span2 reveal">
-        <span class="bic c-brand"><i class="ph-fill ph-magic-wand"></i></span>
-        <h3>Strong passwords, generated</h3>
-        <p>A unique password for every site, with length and symbols you choose. One leak never compromises the rest.</p>
+      <div class="bcell feature-hero sec-hero reveal">
+        <span class="bic"><i class="ph-fill ph-eye-slash"></i></span>
+        <h3>Even the icons keep your secrets</h3>
+        <p>Common icons ship with the app. The rest get a locally generated tile. If you allow automatic fetching, the request goes straight from your iPhone to that website, never through us, and no plaintext domain cache is left on disk.</p>
+        <i class="ph-fill ph-eye-slash ghost-ic"></i>
       </div>
 
       <div class="bcell span2 reveal">
-        <span class="bic c-sec"><i class="ph-fill ph-cursor-click"></i></span>
-        <h3>Auto-fill inside any app</h3>
-        <p>Fill accounts and passwords in seconds, in browsers and native apps, with system-wide auto-fill and QR sign-in.</p>
+        <span class="bic c-brand"><i class="ph-fill ph-cursor-click"></i></span>
+        <h3>AutoFill without an account</h3>
+        <p>Fill logins and one-time codes in apps and browsers. Everything runs locally on your iPhone.</p>
       </div>
       <div class="bcell span2 reveal">
-        <span class="bic c-mix"><i class="ph-fill ph-fingerprint"></i></span>
-        <h3>Passkeys and 2FA built in</h3>
-        <p>Sign in with biometrics; one-time codes copy themselves. Keep passkeys and 2FA codes in the same vault.</p>
+        <span class="bic c-mix"><i class="ph-fill ph-magic-wand"></i></span>
+        <h3>Generate a password in place</h3>
+        <p>Create a unique password when you need one, then save it straight into the vault.</p>
+      </div>
+      <div class="bcell span2 reveal">
+        <span class="bic c-sec"><i class="ph-fill ph-shield-check"></i></span>
+        <h3>Encrypted before it is stored</h3>
+        <p>AES-256 encryption happens on device. There is no server-side copy of your vault.</p>
       </div>
       <div class="bcell span2 reveal">
         <span class="bic c-brand"><i class="ph-fill ph-warning-circle"></i></span>
-        <h3>Breach alerts</h3>
-        <p>Checks your entries against known breach data and flags reused or exposed passwords, so you can rotate them fast.</p>
+        <h3>Checks that stay on device</h3>
+        <p>Spot weak, reused, and 2FA-missing entries without uploading your vault for a report.</p>
       </div>
     </div>
   </div>
@@ -306,36 +314,36 @@
 <section class="block showcase" id="showcase">
   <div class="wrap">
     <div class="sec-head reveal">
-      <h2>Take a look inside</h2>
-      <p>Four screens from the real app. Unlock, open any entry, and keep your whole vault healthy.</p>
+      <h2>A look inside the vault</h2>
+      <p>Four screens from the real app: local unlock, entry details, on-device checks, and the secrets you do not want in plain sight.</p>
     </div>
     <div class="shot-grid">
       <div class="shot-card reveal">
         <div class="shot"><img src="assets/shot-unlock.png" alt="VaultCell unlock screen with Face ID" /></div>
         <div class="shot-cap">
-          <h3>Unlock with Face ID</h3>
-          <p>Sign in with biometrics or your master password. The key never leaves your device.</p>
+          <h3>Unlock on the device</h3>
+          <p>Face ID or your master password opens the vault locally. Nothing is checked with a server.</p>
         </div>
       </div>
       <div class="shot-card reveal">
         <div class="shot"><img src="assets/shot-detail-login.png" alt="VaultCell login entry detail with password strength and 2FA code" /></div>
         <div class="shot-cap">
-          <h3>Every detail of an entry</h3>
-          <p>Username, password strength, live 2FA codes, and notes in one place. Copy any field in a tap.</p>
+          <h3>Every field, one tap away</h3>
+          <p>Passwords, 2FA codes, and notes stay masked until you unlock them on this iPhone.</p>
         </div>
       </div>
       <div class="shot-card reveal">
         <div class="shot"><img src="assets/shot-security.png" alt="VaultCell security score dashboard" /></div>
         <div class="shot-cap">
-          <h3>Vault health at a glance</h3>
-          <p>A live score surfaces reused passwords, missing 2FA, and weak entries, with steps to fix them.</p>
+          <h3>Checks without uploads</h3>
+          <p>A local score flags weak, reused, and 2FA-missing entries. Your vault is never sent anywhere for analysis.</p>
         </div>
       </div>
       <div class="shot-card reveal">
         <div class="shot"><img src="assets/shot-detail-card.png" alt="VaultCell bank card entry with card number, CVV, and online banking passwords" /></div>
         <div class="shot-cap">
-          <h3>More than passwords</h3>
-          <p>Payment cards, PINs, and online banking secrets live in the same encrypted vault, fully masked until you need them.</p>
+          <h3>Cards, not just logins</h3>
+          <p>Payment cards, PINs, and banking secrets live in the same encrypted vault, masked until you need them.</p>
         </div>
       </div>
     </div>
@@ -346,33 +354,33 @@
 <section class="block sec-flow" id="security">
   <div class="wrap">
     <div class="sec-head reveal">
-      <h2>How your data stays visible to you alone</h2>
-      <p>Four steps, tightly linked. Each one shrinks the number of people who can read your content, down to just you.</p>
+      <h2>What we deliberately don't operate</h2>
+      <p>No account system, no cloud vault, no icon server, no plaintext domain index. That is a much shorter promise to keep.</p>
     </div>
     <div class="flow">
       <div class="flow-step reveal">
         <span class="num">1</span>
-        <div class="fic"><i class="ph-fill ph-device-mobile"></i></div>
-        <h3>Encrypted on device</h3>
-        <p>Everything is encrypted as you type. Keys are derived from your master password and never leave the device.</p>
+        <div class="fic"><i class="ph-fill ph-key"></i></div>
+        <h3>Keys are made on your iPhone</h3>
+        <p>Your master password derives the encryption key locally. It is never uploaded.</p>
       </div>
       <div class="flow-step reveal">
         <span class="num">2</span>
         <div class="fic"><i class="ph-fill ph-database"></i></div>
-        <h3>Stored only on your device</h3>
-        <p>Your vault never leaves your iPhone. No server holds a copy of your data.</p>
+        <h3>The vault never leaves the device</h3>
+        <p>There is no cloud copy and no background sync. What you save lives in encrypted local storage.</p>
       </div>
       <div class="flow-step reveal">
         <span class="num">3</span>
-        <div class="fic"><i class="ph-fill ph-key"></i></div>
-        <h3>The key stays with you</h3>
-        <p>In a zero-knowledge design we never store your master password and can't help you recover it. The security is yours alone.</p>
+        <div class="fic"><i class="ph-fill ph-eye-slash"></i></div>
+        <h3>Icons do not become a data leak</h3>
+        <p>Built-in or generated locally by default. Automatic fetches go straight to the website and can be turned off any time.</p>
       </div>
       <div class="flow-step reveal">
         <span class="num">4</span>
-        <div class="fic"><i class="ph-fill ph-lock-key-open"></i></div>
-        <h3>Only you unlock it</h3>
-        <p>Face ID or your master password opens the vault locally. No account, no remote door.</p>
+        <div class="fic"><i class="ph-fill ph-folder-open"></i></div>
+        <h3>Passkeys can leave with you</h3>
+        <p>FIDO CXP/CXF import and export means your credentials are not held hostage by one app.</p>
       </div>
     </div>
   </div>
@@ -383,12 +391,12 @@
   <div class="wrap">
     <div class="cta-wrap reveal">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <h2>Put the vault in your pocket</h2>
-      <p>Download free and build your first encrypted vault in 30 seconds. No account, no cloud, and no subscription to unlock the basics.</p>
+      <h2>A vault you can leave, whenever you want</h2>
+      <p>No sign-up, no cloud copy, and no lock-in for your passkeys. Download VaultCell, set a master password, and start locally.</p>
       <div class="stores">
         <a class="store" href="#"><i class="ph-fill ph-apple-logo"></i><span class="st"><small>Download on the</small><b>App Store</b></span></a>
       </div>
-      <div class="cta-sub">Currently available on iPhone.</div>
+      <div class="cta-sub">iPhone only. Offline by design.</div>
     </div>
   </div>
 </section>
@@ -401,20 +409,24 @@
     </div>
     <div class="faq">
       <details class="reveal" open>
-        <summary>What if I forget my master password?<i class="ph-fill ph-plus"></i></summary>
-        <div class="ans">Because of our zero-knowledge design, your master password is never uploaded, so we genuinely can't recover it for you. When you set up your vault we generate a set of recovery keys; store them offline, because they're your only backup.</div>
+        <summary>Can I take my passkeys to another manager?<i class="ph-fill ph-plus"></i></summary>
+        <div class="ans">Yes. VaultCell supports FIDO CXP/CXF import and export, so passkeys can move between services that support the standard. They are not trapped in VaultCell.</div>
       </details>
       <details class="reveal">
-        <summary>Can you see my passwords?<i class="ph-fill ph-plus"></i></summary>
-        <div class="ans">No. Data is encrypted on your device before it is written to disk, and the decryption key lives only in your device and your master password. Nothing is uploaded, and no server ever holds a copy.</div>
+        <summary>What if I forget my master password?<i class="ph-fill ph-plus"></i></summary>
+        <div class="ans">We cannot reset it. There is no account or server holding your key. When you set up your vault, you get recovery keys to store offline. Keep them somewhere safe, because they are the only way back in.</div>
+      </details>
+      <details class="reveal">
+        <summary>Can you see my passwords or the sites I save?<i class="ph-fill ph-plus"></i></summary>
+        <div class="ans">No. There is no server-side vault, and we do not run an icon lookup service. Built-in icons are local. If automatic fetching is on, your iPhone contacts the website directly, not us.</div>
       </details>
       <details class="reveal">
         <summary>Do I need an account or an internet connection?<i class="ph-fill ph-plus"></i></summary>
-        <div class="ans">No. VaultCell works fully offline on your device. There is no sign-up, no cloud account, and no subscription needed to unlock the core features.</div>
+        <div class="ans">No. VaultCell works fully offline on your device. There is no sign-up, no cloud account, and no subscription needed for the core features.</div>
       </details>
       <details class="reveal">
-        <summary>Can I migrate from another password manager?<i class="ph-fill ph-plus"></i></summary>
-        <div class="ans">Absolutely. VaultCell imports export files from major managers and also pulls entries in through an open CSV format, encrypting everything locally as it lands.</div>
+        <summary>Does it sync across devices?<i class="ph-fill ph-plus"></i></summary>
+        <div class="ans">No. VaultCell is deliberately single-device. There is no cloud sync and no cross-device dashboard. That is the tradeoff that keeps the vault local.</div>
       </details>
     </div>
   </div>
@@ -429,7 +441,7 @@
           <img class="logo-mark" src="assets/logo.png" alt="VaultCell icon" width="34" height="34" />
           VaultCell
         </a>
-        <p>Lock your passwords, cards, and notes inside a vault only you can open.</p>
+        <p>A private iPhone vault with portable passkeys and icons that do not leak your site list.</p>
       </div>
       <div class="foot-col">
         <h4>Product</h4>
