@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Privacy Policy · VaultCell</title>
-<meta name="description" content="How VaultCell handles your data. Zero-knowledge encryption, CloudKit sync, and the diagnostics we collect." />
+<meta name="description" content="How VaultCell handles your data: local-first encrypted storage, optional iCloud sync, and Apple diagnostics." />
 <meta name="robots" content="index,follow" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -309,11 +309,11 @@
   <h2 id="collect">2. What we collect</h2>
 
   <h3>2.1 Vault content</h3>
-  <p>Everything you store in VaultCell — passwords, passkeys, cards, secure notes, and any tags or folder names — is encrypted on your device before it is written to disk or transmitted. We operate no server that holds your vault; synchronization runs through Apple's CloudKit, into the private database tied to your own Apple ID.</p>
-  <p><strong>Your master password is never transmitted, never uploaded, and never stored by us.</strong> It exists only in your memory and, transiently, in your device's memory while the vault is unlocked. We cannot read your vault, and we cannot help you recover it.</p>
+  <p>Sensitive fields — passwords, card details and secure notes — are encrypted on your device with AES-256-GCM before they are written to disk or transmitted. Some entry metadata, such as site names and usernames, is kept in your device's local database in readable form; it never reaches us and leaves the device only if you enable iCloud sync. We operate no server that holds your vault.</p>
+  <p><strong>Your master password is never transmitted, never uploaded, and never stored by us.</strong> It exists only in your memory and, transiently, in your device's memory while the vault is unlocked. We cannot read your vault, and we cannot help you recover it. There is no recovery key held by us: if you lose your master password, your encrypted backup file and its password are the only way back in.</p>
 
   <h3>2.2 iCloud and CloudKit</h3>
-  <p>Synchronization uses Apple's CloudKit framework. Your encrypted vault is written to your personal iCloud private database. We have no administrative access to that database, no export tooling against it, and no ability to enumerate its contents.</p>
+  <p>Synchronization uses Apple's CloudKit framework. <strong>iCloud sync is optional and off by default.</strong> Only after you turn it on are encrypted records written to your personal iCloud private database. We have no administrative access to that database, no export tooling against it, and no ability to enumerate its contents.</p>
   <p>Where you share a vault with another person, sharing is handled by CloudKit's sharing mechanism. Invitees receive the same ciphertext you hold; they can only decrypt it with the key material you share with them separately.</p>
   <div class="note">
     <p><b>Storage region.</b> For users whose Apple ID country or region is mainland China, iCloud and CloudKit services are operated by Guizhou-Cloud Big Data Industrial Development Co., Ltd. (云上贵州), and vault data remains stored within mainland China. For all other users, including users in the EEA and the UK, data may be stored and processed in the United States, in European countries where Apple operates its own data centres, and in other countries where Apple operates its infrastructure.</p>
@@ -428,7 +428,7 @@
 
   <h2 id="security">9. Security</h2>
   <p>Your vault is encrypted on your device using AES-256-GCM, with a key derived from your master password using Argon2id. Encryption and decryption happen locally; keys derived from your master password never leave your device.</p>
-  <p>No system is perfectly secure. The practical risk to your vault sits almost entirely at the endpoints you control: the strength of your master password, whether your devices are compromised, and whether your recovery key is stored safely.</p>
+  <p>No system is perfectly secure. The practical risk to your vault sits almost entirely at the endpoints you control: the strength of your master password, whether your devices are compromised, and whether you keep your encrypted backup file and its password safe.</p>
 
   <h2 id="breach">10. Data breaches</h2>
   <p>If a breach affects your personal data, we will notify the relevant supervisory authority within 72 hours where the GDPR requires it, and notify you where a breach is likely to result in a high risk to your rights, or where local law — including the PRC Personal Information Protection Law, the Privacy Act 2020 (New Zealand), and the Notifiable Data Breaches scheme (Australia) — requires notification.</p>
@@ -484,11 +484,11 @@
   <h2 id="zh-collect">2. 我们收集哪些信息</h2>
 
   <h3>2.1 保险库内容</h3>
-  <p>你存入 VaultCell 的全部内容——密码、通行密钥、卡片、安全笔记，以及标签与文件夹名称——在写入磁盘或传输之前已在你的设备上加密。我们不运营任何存储你保险库的服务器，同步通过 Apple 的 CloudKit 在你本人 Apple ID 对应的私有数据库中进行。</p>
-  <p><strong>你的主密码不会被传输、不会被上传、不会被我们存储。</strong>它只存在于你的记忆中，以及在保险库解锁期间短暂存在于设备内存中。我们无法读取你的保险库，也无法帮你找回主密码。</p>
+  <p>敏感字段——密码、卡片详情和安全笔记——在写入磁盘或传输之前，已在你的设备上使用 AES-256-GCM 加密。部分条目元数据（例如站点名称和用户名）以可读形式存放在你设备的本地数据库中；这些数据绝不会到达我们，也只有当你开启 iCloud 同步时才会离开设备。我们不运营任何存储你保险库的服务器。</p>
+  <p><strong>你的主密码不会被传输、不会被上传、不会被我们存储。</strong>它只存在于你的记忆中，以及在保险库解锁期间短暂存在于设备内存中。我们无法读取你的保险库，也无法帮你找回主密码。我们手中没有恢复密钥：一旦遗失主密码，你的加密备份文件及其密码是唯一的恢复途径。</p>
 
   <h3>2.2 iCloud 与 CloudKit</h3>
-  <p>同步使用 Apple 的 CloudKit 框架，你的加密保险库写入你个人的 iCloud 私有数据库。我们对该数据库没有管理权限，没有任何导出工具，也无法枚举其中的内容。</p>
+  <p>同步使用 Apple 的 CloudKit 框架。<strong>iCloud 同步为可选功能，默认关闭。</strong>只有在你手动开启后，加密记录才会写入你个人的 iCloud 私有数据库。我们对该数据库没有管理权限，没有任何导出工具，也无法枚举其中的内容。</p>
   <p>当你与他人共享保险库时，共享通过 CloudKit 的共享机制完成。受邀者拿到的与你持有的是同一份密文，只能使用你另行分享给他们的密钥材料解密。</p>
   <div class="note">
     <p><b>存储区域。</b>若你的 Apple ID 国家或地区为中国大陆，iCloud 与 CloudKit 服务由云上贵州大数据产业发展有限公司运营，保险库数据存储于中国大陆境内。包括欧洲经济区和英国用户在内的其他用户，其数据可能存储和处理于美国、Apple 自有数据中心的所在欧洲国家，以及 Apple 运营基础设施的其他国家／地区。</p>
@@ -603,7 +603,7 @@
 
   <h2 id="zh-security">9. 安全措施</h2>
   <p>你的保险库在设备上使用 AES-256-GCM 加密，密钥由主密码经 Argon2id 派生。加解密均在本地完成，由主密码派生的密钥永不离开你的设备。</p>
-  <p>没有绝对安全的系统。你的保险库实际风险几乎全部集中在你可控的端点上：主密码强度、设备是否被入侵、恢复密钥是否妥善保管。</p>
+  <p>没有绝对安全的系统。你的保险库实际风险几乎全部集中在你可控的端点上：主密码强度、设备是否被入侵，以及你是否妥善保管加密备份文件及其密码。</p>
 
   <h2 id="zh-breach">10. 数据泄露</h2>
   <p>若发生影响你个人信息的安全事件，我们将在 GDPR 要求的 72 小时内通知相关监管机构；若泄露可能对你的权利造成高风险，或当地法律（包括《个人信息保护法》、新西兰《2020 年隐私法》、澳大利亚强制数据泄露通报制度）要求通知，我们将通知你。</p>

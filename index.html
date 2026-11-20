@@ -3,15 +3,23 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>VaultCell · A private iPhone vault with import and export built in</title>
-<meta name="description" content="VaultCell keeps passwords, cards, and notes encrypted on your iPhone. Import and export password entries with FIDO CXP/CXF from the iOS Passwords app, audit email and phone dependencies, and keep your site list out of icon servers." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<title>VaultCell · Private vault for iPhone and iPad</title>
+<meta name="description" content="VaultCell: a local-first iPhone/iPad vault with AES-256-GCM encryption, credential import/export, AutoFill and no account." />
+<link rel="canonical" href="https://vaultcell.app/" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://vaultcell.app/" />
+<meta property="og:title" content="VaultCell · Private vault for iPhone and iPad" />
+<meta property="og:description" content="Local-first vault with AES-256-GCM encryption, credential import/export, AutoFill and no account." />
+<meta property="og:image" content="https://vaultcell.app/assets/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="VaultCell · Private vault for iPhone and iPad" />
+<meta name="twitter:description" content="Local-first vault with AES-256-GCM encryption, credential import/export, AutoFill and no account." />
+<meta name="twitter:image" content="https://vaultcell.app/assets/logo.png" />
 <link rel="stylesheet" href="assets/icons.css" />
 <link rel="icon" type="image/png" href="assets/logo.png" />
 <script>document.documentElement.classList.add('js');</script>
 <style>
+  @font-face{font-family:'Outfit';src:url('assets/fonts/outfit-latin.woff2') format('woff2');font-style:normal;font-weight:400 800;font-display:swap}
   :root{
     --bg:#f6f9fe; --bg-2:#eef4fd; --surface:#ffffff; --surface-2:#f1f6ff;
     --border:#e3eaf4; --text:#0d1b2e; --text-muted:#56657c;
@@ -77,7 +85,8 @@
   .eyebrow i{font-size:15px}
   h1{font-size:clamp(38px,5vw,62px);line-height:1.04;font-weight:800;letter-spacing:-.03em;margin-bottom:22px}
   h1 .grad{background:linear-gradient(120deg,var(--brand),var(--sec));-webkit-background-clip:text;background-clip:text;color:transparent}
-  .hero p.lead{font-size:18px;color:var(--text-muted);max-width:48ch;margin-bottom:32px}
+  .hero p.lead{font-size:18px;color:var(--text-muted);max-width:48ch;margin-bottom:12px}
+  .hero p.fine{font-size:12.5px;color:var(--text-muted);max-width:52ch;margin:0 0 28px}
   .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
   .hero-note{margin-top:18px;font-size:13.5px;color:var(--text-muted);display:flex;align-items:center;gap:8px}
   .hero-note i{color:var(--sec);font-size:16px}
@@ -156,6 +165,8 @@
     color:#fff;padding:13px 22px;border-radius:14px;transition:background .2s, transform .18s}
   .store:hover{background:rgba(255,255,255,.22)}
   .store:active{transform:translateY(1px) scale(.99)}
+  .store.is-soon{cursor:default;opacity:.85}
+  .store.is-soon:hover{background:rgba(255,255,255,.12)}
   .store i{font-size:26px}
   .store .st{min-width:0}
   .store .st small{display:block;font-size:11px;opacity:.85;font-weight:500}
@@ -229,7 +240,7 @@
       <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-cta">
-      <a class="btn btn-primary" href="#download">Get VaultCell</a>
+      <a class="btn btn-primary" href="#download">Coming soon</a>
     </div>
   </div>
 </header>
@@ -241,12 +252,13 @@
     <div class="hero-copy reveal">
       <span class="eyebrow"><i class="ph-fill ph-arrows-left-right"></i> Import and export built in</span>
       <h1>Your vault stays private.<br><span class="grad">Your entries stay portable.</span></h1>
-      <p class="lead">VaultCell keeps passwords, cards, and notes encrypted on your iPhone. Move entries in and out with FIDO CXP/CXF, including from the iOS Passwords app, audit the emails and phone numbers your entries depend on, and keep site icons away from our servers.</p>
+      <p class="lead">VaultCell keeps passwords, cards, and notes on your iPhone and iPad. Move username and password entries in and out with Apple Credential Exchange (iOS 26+), audit the emails and phone numbers your entries depend on, and keep site icons away from our servers.</p>
+      <p class="fine">Credential Exchange currently handles username/password entries only — passkeys, one-time codes and cards are not transferable.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="#download"><i class="ph-fill ph-arrow-down"></i> Get VaultCell</a>
-        <a class="btn btn-ghost" href="#features">See what makes it different <i class="ph-fill ph-arrow-right"></i></a>
+        <a class="btn btn-primary" href="#features">See what makes it different <i class="ph-fill ph-arrow-right"></i></a>
+        <a class="btn btn-ghost" href="privacy.html">Read the privacy policy <i class="ph-fill ph-arrow-right"></i></a>
       </div>
-      <div class="hero-note"><i class="ph-fill ph-lock-key"></i> No account. No cloud copy. No icon server watching your vault.</div>
+      <div class="hero-note"><i class="ph-fill ph-lock-key"></i> No account. No servers of ours. Encrypted locally by default.</div>
     </div>
 
     <!-- real App screenshot inside a phone frame -->
@@ -261,12 +273,12 @@
 <!-- TRUST STRIP -->
 <div class="strip">
   <div class="wrap strip-inner reveal">
-    <span class="chip"><i class="ph-fill ph-arrows-left-right"></i> FIDO CXP/CXF entry import and export</span>
+    <span class="chip"><i class="ph-fill ph-arrows-left-right"></i> Credential import and export (iOS 26+)</span>
     <span class="chip"><i class="ph-fill ph-eye-slash"></i> Icons never touch our server</span>
-    <span class="chip"><i class="ph-fill ph-lock"></i> AES-256 on device</span>
-    <span class="chip"><i class="ph-fill ph-wifi-slash"></i> Works offline</span>
+    <span class="chip"><i class="ph-fill ph-lock"></i> AES-256-GCM on device</span>
+    <span class="chip"><i class="ph-fill ph-wifi-slash"></i> Core features work offline</span>
     <span class="chip"><i class="ph-fill ph-folder-open"></i> Email and phone dependency audit</span>
-    <span class="chip"><i class="ph-fill ph-lock"></i> No account, no cloud copy</span>
+    <span class="chip"><i class="ph-fill ph-lock"></i> No account, no servers of ours</span>
   </div>
 </div>
 
@@ -274,20 +286,20 @@
 <section class="block" id="features">
   <div class="wrap">
     <div class="sec-head reveal">
-      <h2>Built for the parts other managers gloss over</h2>
-      <p>Encryption is table stakes. VaultCell focuses on three details that usually get ignored: letting your entries move between managers, keeping your site list out of someone else's logs, and showing what depends on an email address or phone number before you give it up.</p>
+      <h2>Built around the details that matter when you switch</h2>
+      <p>Encryption is the baseline. VaultCell focuses on three things that are usually missed: letting your entries move between managers, keeping your site list out of someone else's logs, and showing what depends on an email address or phone number before you give it up.</p>
     </div>
     <div class="bento">
       <div class="bcell feature-hero reveal">
         <span class="bic"><i class="ph-fill ph-arrows-left-right"></i></span>
         <h3>Move your entries, not just your passwords</h3>
-        <p>Import and export password entries with FIDO CXP/CXF, straight from the iOS Passwords app. Switching managers should not mean re-entering every login by hand.</p>
+        <p>Import and export username/password entries with Apple Credential Exchange on iOS 26+, straight from the iOS Passwords app. Passkeys, one-time codes and cards stay in the app. Switching managers should not mean re-entering every login by hand.</p>
         <i class="ph-fill ph-arrows-left-right ghost-ic"></i>
       </div>
       <div class="bcell feature-hero sec-hero reveal">
         <span class="bic"><i class="ph-fill ph-eye-slash"></i></span>
         <h3>Even the icons keep your secrets</h3>
-        <p>Common icons ship with the app. The rest get a locally generated tile. If you allow automatic fetching, the request goes straight from your iPhone to that website, never through us, and no plaintext domain cache is left on disk.</p>
+        <p>Common icons ship with the app. The rest get a locally generated tile. If you allow automatic fetching, the request goes straight from your iPhone to that website, never through us, and the cache uses hashed filenames rather than your domain list.</p>
         <i class="ph-fill ph-eye-slash ghost-ic"></i>
       </div>
 
@@ -300,7 +312,7 @@
       <div class="bcell span3 reveal">
         <span class="bic c-brand"><i class="ph-fill ph-cursor-click"></i></span>
         <h3>AutoFill without an account</h3>
-        <p>Fill logins and one-time codes in apps and browsers. Everything runs locally on your iPhone.</p>
+        <p>Fill logins in apps and browsers. TOTP codes stay in the app. Everything runs locally on your device.</p>
       </div>
       <div class="bcell span3 reveal">
         <span class="bic c-mix"><i class="ph-fill ph-magic-wand"></i></span>
@@ -310,7 +322,7 @@
       <div class="bcell span3 reveal">
         <span class="bic c-sec"><i class="ph-fill ph-shield-check"></i></span>
         <h3>Encrypted before it is stored</h3>
-        <p>AES-256 encryption happens on device. There is no server-side copy of your vault.</p>
+        <p>Sensitive fields — passwords, notes and card details — are AES-256-GCM encrypted on device. We run no server holding a copy of your vault.</p>
       </div>
       <div class="bcell span3 reveal">
         <span class="bic c-brand"><i class="ph-fill ph-warning-circle"></i></span>
@@ -354,7 +366,7 @@
         <div class="shot"><img src="assets/shot-detail-card.png" alt="VaultCell bank card entry with card number, CVV, and online banking passwords" /></div>
         <div class="shot-cap">
           <h3>Cards, not just logins</h3>
-          <p>Payment cards, PINs, and banking secrets live in the same encrypted vault, masked until you need them.</p>
+          <p>Payment cards live in the same encrypted vault. CVV, PINs and banking passwords stay masked until you reveal them.</p>
         </div>
       </div>
     </div>
@@ -366,7 +378,7 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <h2>What we deliberately don't operate</h2>
-      <p>No account system, no cloud vault, no icon server, no plaintext domain index. That is a much shorter promise to keep.</p>
+      <p>No account system, no servers of ours, no icon server, no plaintext domain index. That is a much shorter promise to keep.</p>
     </div>
     <div class="flow">
       <div class="flow-step reveal">
@@ -378,8 +390,8 @@
       <div class="flow-step reveal">
         <span class="num">2</span>
         <div class="fic"><i class="ph-fill ph-database"></i></div>
-        <h3>The vault never leaves the device</h3>
-        <p>There is no cloud copy and no background sync. What you save lives in encrypted local storage.</p>
+        <h3>Encrypted locally by default</h3>
+        <p>iCloud sync is optional and off by default. When you turn it on, encrypted records go only to your own private iCloud database, which we cannot read.</p>
       </div>
       <div class="flow-step reveal">
         <span class="num">3</span>
@@ -403,11 +415,11 @@
     <div class="cta-wrap reveal">
       <span class="blob b1"></span><span class="blob b2"></span>
       <h2>A vault you can leave, whenever you want</h2>
-      <p>No sign-up, no cloud copy, and no lock-in for your entries. Download VaultCell, set a master password, and start locally.</p>
+      <p>No sign-up, no servers of ours, and no lock-in for your entries. VaultCell is coming soon for iPhone and iPad — set a master password and start locally.</p>
       <div class="stores">
-        <a class="store" href="#"><i class="ph-fill ph-apple-logo"></i><span class="st"><small>Download on the</small><b>App Store</b></span></a>
+        <span class="store is-soon" aria-disabled="true"><i class="ph-fill ph-apple-logo"></i><span class="st"><small>Coming soon on the</small><b>App Store</b></span></span>
       </div>
-      <div class="cta-sub">iPhone only. Offline by design.</div>
+      <div class="cta-sub">iPhone and iPad. Core features work offline.</div>
     </div>
   </div>
 </section>
@@ -416,12 +428,12 @@
 <section class="block" id="faq" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head reveal" style="margin-left:auto;margin-right:auto;text-align:center">
-      <h2>A few things you'll probably ask</h2>
+      <h2>Common questions</h2>
     </div>
     <div class="faq">
       <details class="reveal" open>
         <summary>Can I move my entries to another manager?<i class="ph-fill ph-plus"></i></summary>
-        <div class="ans">Yes. VaultCell supports FIDO CXP/CXF import and export for password entries, including from the iOS Passwords app. Your saved logins can move with you and are not trapped in VaultCell.</div>
+        <div class="ans">Yes. VaultCell supports Apple Credential Exchange (iOS 26+) for username/password entries, including from the iOS Passwords app. Passkeys, one-time codes and cards are not transferable in this version. Your saved logins can move with you and are not trapped in VaultCell.</div>
       </details>
       <details class="reveal">
         <summary>What happens if I close an email account or change my phone number?<i class="ph-fill ph-plus"></i></summary>
@@ -429,19 +441,19 @@
       </details>
       <details class="reveal">
         <summary>What if I forget my master password?<i class="ph-fill ph-plus"></i></summary>
-        <div class="ans">We cannot reset it. There is no account or server holding your key. When you set up your vault, you get recovery keys to store offline. Keep them somewhere safe, because they are the only way back in.</div>
+        <div class="ans">We cannot reset it — there is no account or server holding your key. Keep your encrypted backup file and its password safe; that is the only way back in.</div>
       </details>
       <details class="reveal">
         <summary>Can you see my passwords or the sites I save?<i class="ph-fill ph-plus"></i></summary>
-        <div class="ans">No. There is no server-side vault, and we do not run an icon lookup service. Built-in icons are local. If automatic fetching is on, your iPhone contacts the website directly, not us.</div>
+        <div class="ans">No. We operate no server-side vault, and we do not run an icon lookup service. Built-in icons are local. If automatic fetching is on, your iPhone contacts the website directly, not us.</div>
       </details>
       <details class="reveal">
         <summary>Do I need an account or an internet connection?<i class="ph-fill ph-plus"></i></summary>
-        <div class="ans">No. VaultCell works fully offline on your device. There is no sign-up, no cloud account, and no subscription needed for the core features.</div>
+        <div class="ans">No account is needed. Core features work offline; automatic icon fetching is optional and can be turned off. There is no subscription for the core features.</div>
       </details>
       <details class="reveal">
         <summary>Does it sync across devices?<i class="ph-fill ph-plus"></i></summary>
-        <div class="ans">No. VaultCell is deliberately single-device. There is no cloud sync and no cross-device dashboard. That is the tradeoff that keeps the vault local.</div>
+        <div class="ans">Yes, optionally. iCloud sync is off by default. Encrypted records go through your own private iCloud database, which we cannot read.</div>
       </details>
     </div>
   </div>
@@ -456,14 +468,14 @@
           <img class="logo-mark" src="assets/logo.png" alt="VaultCell icon" width="34" height="34" />
           VaultCell
         </a>
-        <p>A private vault with portable entries and icons that do not leak your site list.</p>
+        <p>A private vault for iPhone and iPad. Core features work offline, with portable entries and icons that do not leak your site list.</p>
       </div>
       <div class="foot-col">
         <h4>Product</h4>
         <a href="#features">Features</a>
         <a href="#security">Security</a>
         <a href="#showcase">Screenshots</a>
-        <a href="#download">Download</a>
+        <a href="#download">Availability</a>
       </div>
       <div class="foot-col">
         <h4>Legal</h4>
