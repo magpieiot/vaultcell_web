@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>VaultCell · Private vault for iPhone and iPad</title>
-<meta name="description" content="VaultCell: a local-first iPhone/iPad vault with AES-256-GCM encryption, credential import/export, AutoFill and no account." />
+<title data-en="VaultCell · Private vault for iPhone and iPad" data-zh="VaultCell · iPhone 与 iPad 上的私密保险库">VaultCell · Private vault for iPhone and iPad</title>
+<meta name="description" data-en="VaultCell: a local-first iPhone/iPad vault with AES-256-GCM encryption, credential import/export, AutoFill and no account." data-zh="VaultCell：本地优先的 iPhone/iPad 保险库，支持 AES-256-GCM 加密、凭证导入导出与自动填充，无需账号。" content="VaultCell: a local-first iPhone/iPad vault with AES-256-GCM encryption, credential import/export, AutoFill and no account." />
 <link rel="canonical" href="https://vaultcell.app/" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://vaultcell.app/" />
-<meta property="og:title" content="VaultCell · Private vault for iPhone and iPad" />
-<meta property="og:description" content="Local-first vault with AES-256-GCM encryption, credential import/export, AutoFill and no account." />
+<meta property="og:title" data-en="VaultCell · Private vault for iPhone and iPad" data-zh="VaultCell · iPhone 与 iPad 上的私密保险库" content="VaultCell · Private vault for iPhone and iPad" />
+<meta property="og:description" data-en="Local-first vault with AES-256-GCM encryption, credential import/export, AutoFill and no account." data-zh="本地优先的保险库，支持 AES-256-GCM 加密、凭证导入导出与自动填充，无需账号。" content="Local-first vault with AES-256-GCM encryption, credential import/export, AutoFill and no account." />
 <meta property="og:image" content="https://vaultcell.app/assets/logo.png" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="VaultCell · Private vault for iPhone and iPad" />
-<meta name="twitter:description" content="Local-first vault with AES-256-GCM encryption, credential import/export, AutoFill and no account." />
+<meta name="twitter:title" data-en="VaultCell · Private vault for iPhone and iPad" data-zh="VaultCell · iPhone 与 iPad 上的私密保险库" content="VaultCell · Private vault for iPhone and iPad" />
+<meta name="twitter:description" data-en="Local-first vault with AES-256-GCM encryption, credential import/export, AutoFill and no account." data-zh="本地优先的保险库，支持 AES-256-GCM 加密、凭证导入导出与自动填充，无需账号。" content="Local-first vault with AES-256-GCM encryption, credential import/export, AutoFill and no account." />
 <meta name="twitter:image" content="https://vaultcell.app/assets/logo.png" />
 <link rel="stylesheet" href="assets/icons.css" />
 <link rel="icon" type="image/png" href="assets/logo.png" />
@@ -43,7 +43,7 @@
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
-    font-family:'Outfit',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    font-family:'Outfit',-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Noto Sans SC','Microsoft YaHei',sans-serif;
     background:var(--bg); color:var(--text); line-height:1.6;
     -webkit-font-smoothing:antialiased; overflow-x:hidden;
   }
@@ -72,6 +72,12 @@
   .nav-links a{transition:color .2s}
   .nav-links a:hover{color:var(--brand)}
   .nav-cta{display:flex;align-items:center;gap:14px}
+  .langs{display:flex;gap:4px;background:var(--surface-2);border:1px solid var(--border);
+    border-radius:999px;padding:3px}
+  .langs button{border:0;background:transparent;color:var(--text-muted);font:inherit;font-size:13.5px;
+    font-weight:600;padding:6px 15px;border-radius:999px;cursor:pointer}
+  .langs button[aria-pressed="true"]{background:var(--surface);color:var(--brand);
+    box-shadow:0 2px 8px rgba(20,50,100,.10)}
 
   /* ---------- HERO ---------- */
   .hero{position:relative;padding:74px 0 90px;overflow:hidden}
@@ -84,6 +90,7 @@
     color:var(--brand);background:var(--brand-soft);padding:7px 14px;border-radius:var(--r-pill);margin-bottom:22px}
   .eyebrow i{font-size:15px}
   h1{font-size:clamp(38px,5vw,62px);line-height:1.04;font-weight:800;letter-spacing:-.03em;margin-bottom:22px}
+  body[data-lang="zh"] h1{font-size:clamp(34px,3.2vw,46px);line-height:1.18;letter-spacing:-.01em}
   h1 .grad{background:linear-gradient(120deg,var(--brand),var(--sec));-webkit-background-clip:text;background-clip:text;color:transparent}
   .hero p.lead{font-size:18px;color:var(--text-muted);max-width:48ch;margin-bottom:12px}
   .hero p.fine{font-size:12.5px;color:var(--text-muted);max-width:52ch;margin:0 0 28px}
@@ -221,10 +228,12 @@
     .foot-grid{grid-template-columns:1fr 1fr}
     section.block{padding:64px 0}
     .cta-wrap{padding:44px 22px}
+    .langs button{padding:6px 11px}
+    .nav-cta .btn{display:none}
   }
 </style>
 </head>
-<body>
+<body data-lang="en">
 
 <!-- NAV -->
 <header class="nav">
@@ -234,13 +243,17 @@
       VaultCell
     </a>
     <nav class="nav-links">
-      <a href="#features">Features</a>
-      <a href="#security">Security</a>
-      <a href="#showcase">Screenshots</a>
-      <a href="#faq">FAQ</a>
+      <a href="#features" data-en="Features" data-zh="功能">Features</a>
+      <a href="#security" data-en="Security" data-zh="安全">Security</a>
+      <a href="#showcase" data-en="Screenshots" data-zh="截图">Screenshots</a>
+      <a href="#faq" data-en="FAQ" data-zh="常见问题">FAQ</a>
     </nav>
     <div class="nav-cta">
-      <a class="btn btn-primary" href="#download">Coming soon</a>
+      <div class="langs" role="group" aria-label="Language">
+        <button type="button" data-set="en" aria-pressed="true">English</button>
+        <button type="button" data-set="zh" aria-pressed="false">简体中文</button>
+      </div>
+      <a class="btn btn-primary" href="#download" data-en="Coming soon" data-zh="即将上线">Coming soon</a>
     </div>
   </div>
 </header>
@@ -250,21 +263,21 @@
   <div class="hero-bg"><span class="blob b1"></span><span class="blob b2"></span></div>
   <div class="wrap hero-grid">
     <div class="hero-copy reveal">
-      <span class="eyebrow"><i class="ph-fill ph-arrows-left-right"></i> Import and export built in</span>
-      <h1>Your vault stays private.<br><span class="grad">Your entries stay portable.</span></h1>
-      <p class="lead">VaultCell keeps passwords, cards, and notes on your iPhone and iPad. Move username and password entries in and out with Apple Credential Exchange (iOS 26+), audit the emails and phone numbers your entries depend on, and keep site icons away from our servers.</p>
-      <p class="fine">Credential Exchange currently handles username/password entries only — passkeys, one-time codes and cards are not transferable.</p>
+      <span class="eyebrow"><i class="ph-fill ph-arrows-left-right"></i> <span data-en="Import and export built in" data-zh="内置凭证导入与导出">Import and export built in</span></span>
+      <h1><span data-en="Your vault stays private." data-zh="你的保险库，始终私密。">Your vault stays private.</span><br><span class="grad" data-en="Your entries stay portable." data-zh="你的条目，随时带走。">Your entries stay portable.</span></h1>
+      <p class="lead" data-en="VaultCell keeps passwords, cards, and notes on your iPhone and iPad. Move username and password entries in and out with Apple Credential Exchange (iOS 26+), audit the emails and phone numbers your entries depend on, and keep site icons away from our servers." data-zh="VaultCell 把密码、银行卡和备忘录留在你的 iPhone 与 iPad 上。通过 Apple 凭证交换（iOS 26+）导入和导出账号密码条目，排查条目所依赖的邮箱与手机号，网站图标也不会经过我们的服务器。">VaultCell keeps passwords, cards, and notes on your iPhone and iPad. Move username and password entries in and out with Apple Credential Exchange (iOS 26+), audit the emails and phone numbers your entries depend on, and keep site icons away from our servers.</p>
+      <p class="fine" data-en="Credential Exchange currently handles username/password entries only — passkeys, one-time codes and cards are not transferable." data-zh="凭证交换目前仅支持账号密码条目——通行密钥、一次性验证码和银行卡暂不可迁移。">Credential Exchange currently handles username/password entries only — passkeys, one-time codes and cards are not transferable.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="#features">See what makes it different <i class="ph-fill ph-arrow-right"></i></a>
-        <a class="btn btn-ghost" href="privacy.html">Read the privacy policy <i class="ph-fill ph-arrow-right"></i></a>
+        <a class="btn btn-primary" href="#features"><span data-en="See what makes it different" data-zh="看看有何不同">See what makes it different</span> <i class="ph-fill ph-arrow-right"></i></a>
+        <a class="btn btn-ghost" href="privacy.html"><span data-en="Read the privacy policy" data-zh="阅读隐私政策">Read the privacy policy</span> <i class="ph-fill ph-arrow-right"></i></a>
       </div>
-      <div class="hero-note"><i class="ph-fill ph-lock-key"></i> No account. No servers of ours. Encrypted locally by default.</div>
+      <div class="hero-note"><i class="ph-fill ph-lock-key"></i> <span data-en="No account. No servers of ours. Encrypted locally by default." data-zh="无需账号，没有我们的服务器，默认在本地加密。">No account. No servers of ours. Encrypted locally by default.</span></div>
     </div>
 
     <!-- real App screenshot inside a phone frame -->
     <div class="phone-stage reveal">
       <div class="phone">
-        <img class="phone-shot" src="assets/shot-vault.png" alt="VaultCell vault list showing saved logins" />
+        <img class="phone-shot" src="assets/shot-vault.png" alt="VaultCell vault list showing saved logins" data-en="VaultCell vault list showing saved logins" data-zh="VaultCell 保险库列表，显示已保存的登录信息" />
       </div>
     </div>
   </div>
@@ -273,12 +286,12 @@
 <!-- TRUST STRIP -->
 <div class="strip">
   <div class="wrap strip-inner reveal">
-    <span class="chip"><i class="ph-fill ph-arrows-left-right"></i> Credential import and export (iOS 26+)</span>
-    <span class="chip"><i class="ph-fill ph-eye-slash"></i> Icons never touch our server</span>
-    <span class="chip"><i class="ph-fill ph-lock"></i> AES-256-GCM on device</span>
-    <span class="chip"><i class="ph-fill ph-wifi-slash"></i> Core features work offline</span>
-    <span class="chip"><i class="ph-fill ph-folder-open"></i> Email and phone dependency audit</span>
-    <span class="chip"><i class="ph-fill ph-lock"></i> No account, no servers of ours</span>
+    <span class="chip"><i class="ph-fill ph-arrows-left-right"></i> <span data-en="Credential import and export (iOS 26+)" data-zh="凭证导入与导出（iOS 26+）">Credential import and export (iOS 26+)</span></span>
+    <span class="chip"><i class="ph-fill ph-eye-slash"></i> <span data-en="Icons never touch our server" data-zh="图标绝不经过我们的服务器">Icons never touch our server</span></span>
+    <span class="chip"><i class="ph-fill ph-lock"></i> <span data-en="AES-256-GCM on device" data-zh="设备端 AES-256-GCM 加密">AES-256-GCM on device</span></span>
+    <span class="chip"><i class="ph-fill ph-wifi-slash"></i> <span data-en="Core features work offline" data-zh="核心功能离线可用">Core features work offline</span></span>
+    <span class="chip"><i class="ph-fill ph-folder-open"></i> <span data-en="Email and phone dependency audit" data-zh="邮箱与手机号依赖审计">Email and phone dependency audit</span></span>
+    <span class="chip"><i class="ph-fill ph-lock"></i> <span data-en="No account, no servers of ours" data-zh="无需账号，没有我们的服务器">No account, no servers of ours</span></span>
   </div>
 </div>
 
@@ -286,48 +299,48 @@
 <section class="block" id="features">
   <div class="wrap">
     <div class="sec-head reveal">
-      <h2>Built around the details that matter when you switch</h2>
-      <p>Encryption is the baseline. VaultCell focuses on three things that are usually missed: letting your entries move between managers, keeping your site list out of someone else's logs, and showing what depends on an email address or phone number before you give it up.</p>
+      <h2 data-en="Built around the details that matter when you switch" data-zh="围绕换库时真正要紧的细节设计">Built around the details that matter when you switch</h2>
+      <p data-en="Encryption is the baseline. VaultCell focuses on three things that are usually missed: letting your entries move between managers, keeping your site list out of someone else's logs, and showing what depends on an email address or phone number before you give it up." data-zh="加密只是底线。VaultCell 专注三件常被忽略的事：让你的条目能在不同管理器之间迁移、让你的网站清单不出现在别人的日志里，以及在你停用某个邮箱或号码前，先看清谁在依赖它。">Encryption is the baseline. VaultCell focuses on three things that are usually missed: letting your entries move between managers, keeping your site list out of someone else's logs, and showing what depends on an email address or phone number before you give it up.</p>
     </div>
     <div class="bento">
       <div class="bcell feature-hero reveal">
         <span class="bic"><i class="ph-fill ph-arrows-left-right"></i></span>
-        <h3>Move your entries, not just your passwords</h3>
-        <p>Import and export username/password entries with Apple Credential Exchange on iOS 26+, straight from the iOS Passwords app. Passkeys, one-time codes and cards stay in the app. Switching managers should not mean re-entering every login by hand.</p>
+        <h3 data-en="Move your entries, not just your passwords" data-zh="带走的是条目，不只是密码">Move your entries, not just your passwords</h3>
+        <p data-en="Import and export username/password entries with Apple Credential Exchange on iOS 26+, straight from the iOS Passwords app. Passkeys, one-time codes and cards stay in the app. Switching managers should not mean re-entering every login by hand." data-zh="在 iOS 26+ 上通过 Apple 凭证交换，直接从「密码」App 导入和导出账号密码条目。通行密钥、一次性验证码和银行卡仍留在 App 内。换管理器，不该意味着每条登录都要手敲一遍。">Import and export username/password entries with Apple Credential Exchange on iOS 26+, straight from the iOS Passwords app. Passkeys, one-time codes and cards stay in the app. Switching managers should not mean re-entering every login by hand.</p>
         <i class="ph-fill ph-arrows-left-right ghost-ic"></i>
       </div>
       <div class="bcell feature-hero sec-hero reveal">
         <span class="bic"><i class="ph-fill ph-eye-slash"></i></span>
-        <h3>Even the icons keep your secrets</h3>
-        <p>Common icons ship with the app. The rest get a locally generated tile. If you allow automatic fetching, the request goes straight from your iPhone to that website, never through us, and the cache uses hashed filenames rather than your domain list.</p>
+        <h3 data-en="Even the icons keep your secrets" data-zh="连图标也不泄露你的秘密">Even the icons keep your secrets</h3>
+        <p data-en="Common icons ship with the app. The rest get a locally generated tile. If you allow automatic fetching, the request goes straight from your iPhone to that website, never through us, and the cache uses hashed filenames rather than your domain list." data-zh="常见图标随 App 内置，其余的在本地生成色块。如果你允许自动获取，请求会从你的 iPhone 直达该网站，不经过我们，缓存也使用哈希文件名，而不是你的域名清单。">Common icons ship with the app. The rest get a locally generated tile. If you allow automatic fetching, the request goes straight from your iPhone to that website, never through us, and the cache uses hashed filenames rather than your domain list.</p>
         <i class="ph-fill ph-eye-slash ghost-ic"></i>
       </div>
 
       <div class="bcell span6 reveal audit-card">
         <span class="bic c-mix"><i class="ph-fill ph-folder-open"></i></span>
-        <h3>Know what breaks before you close an account</h3>
-        <p>VaultCell audits the email addresses and phone numbers used across your vault. Before you close an inbox or give up a number, see exactly which entries depend on it and what you need to update first. The audit runs locally, with no lookup against our servers.</p>
+        <h3 data-en="Know what breaks before you close an account" data-zh="注销账号前，先知道会断掉什么">Know what breaks before you close an account</h3>
+        <p data-en="VaultCell audits the email addresses and phone numbers used across your vault. Before you close an inbox or give up a number, see exactly which entries depend on it and what you need to update first. The audit runs locally, with no lookup against our servers." data-zh="VaultCell 会审计保险库中用到的邮箱地址和手机号。在停用邮箱或号码前，先看清哪些条目依赖它、需要优先更新什么。审计完全在本地运行，不会向我们的服务器查询。">VaultCell audits the email addresses and phone numbers used across your vault. Before you close an inbox or give up a number, see exactly which entries depend on it and what you need to update first. The audit runs locally, with no lookup against our servers.</p>
       </div>
 
       <div class="bcell span3 reveal">
         <span class="bic c-brand"><i class="ph-fill ph-cursor-click"></i></span>
-        <h3>AutoFill without an account</h3>
-        <p>Fill logins in apps and browsers. TOTP codes stay in the app. Everything runs locally on your device.</p>
+        <h3 data-en="AutoFill without an account" data-zh="无需账号也能自动填充">AutoFill without an account</h3>
+        <p data-en="Fill logins in apps and browsers. TOTP codes stay in the app. Everything runs locally on your device." data-zh="在 App 和浏览器里自动填充登录信息。TOTP 验证码留在 App 内。一切都在你的设备上本地运行。">Fill logins in apps and browsers. TOTP codes stay in the app. Everything runs locally on your device.</p>
       </div>
       <div class="bcell span3 reveal">
         <span class="bic c-mix"><i class="ph-fill ph-magic-wand"></i></span>
-        <h3>Generate a password in place</h3>
-        <p>Create a unique password when you need one, then save it straight into the vault.</p>
+        <h3 data-en="Generate a password in place" data-zh="就地生成密码">Generate a password in place</h3>
+        <p data-en="Create a unique password when you need one, then save it straight into the vault." data-zh="需要时生成一个唯一密码，直接存进保险库。">Create a unique password when you need one, then save it straight into the vault.</p>
       </div>
       <div class="bcell span3 reveal">
         <span class="bic c-sec"><i class="ph-fill ph-shield-check"></i></span>
-        <h3>Encrypted before it is stored</h3>
-        <p>Sensitive fields — passwords, notes and card details — are AES-256-GCM encrypted on device. We run no server holding a copy of your vault.</p>
+        <h3 data-en="Encrypted before it is stored" data-zh="存储前先加密">Encrypted before it is stored</h3>
+        <p data-en="Sensitive fields — passwords, notes and card details — are AES-256-GCM encrypted on device. We run no server holding a copy of your vault." data-zh="敏感字段——密码、备忘录和银行卡信息——在设备端用 AES-256-GCM 加密。我们没有任何保存你保险库副本的服务器。">Sensitive fields — passwords, notes and card details — are AES-256-GCM encrypted on device. We run no server holding a copy of your vault.</p>
       </div>
       <div class="bcell span3 reveal">
         <span class="bic c-brand"><i class="ph-fill ph-warning-circle"></i></span>
-        <h3>Checks that stay on device</h3>
-        <p>Spot weak, reused, and 2FA-missing entries without uploading your vault for a report.</p>
+        <h3 data-en="Checks that stay on device" data-zh="检查只在设备上进行">Checks that stay on device</h3>
+        <p data-en="Spot weak, reused, and 2FA-missing entries without uploading your vault for a report." data-zh="找出弱密码、重复使用的密码和未开启双重认证的条目，无需上传保险库换取报告。">Spot weak, reused, and 2FA-missing entries without uploading your vault for a report.</p>
       </div>
     </div>
   </div>
@@ -337,36 +350,36 @@
 <section class="block showcase" id="showcase">
   <div class="wrap">
     <div class="sec-head reveal">
-      <h2>A look inside the vault</h2>
-      <p>Four screens from the real app: local unlock, entry details, on-device checks, and the secrets you do not want in plain sight.</p>
+      <h2 data-en="A look inside the vault" data-zh="看看保险库里面">A look inside the vault</h2>
+      <p data-en="Four screens from the real app: local unlock, entry details, on-device checks, and the secrets you do not want in plain sight." data-zh="四张真机截图：本地解锁、条目详情、设备端检查，以及那些你不想明文示人的秘密。">Four screens from the real app: local unlock, entry details, on-device checks, and the secrets you do not want in plain sight.</p>
     </div>
     <div class="shot-grid">
       <div class="shot-card reveal">
-        <div class="shot"><img src="assets/shot-unlock.png" alt="VaultCell unlock screen with Face ID" /></div>
+        <div class="shot"><img src="assets/shot-unlock.png" alt="VaultCell unlock screen with Face ID" data-en="VaultCell unlock screen with Face ID" data-zh="VaultCell 解锁界面，使用面容 ID" /></div>
         <div class="shot-cap">
-          <h3>Unlock on the device</h3>
-          <p>Face ID or your master password opens the vault locally. Nothing is checked with a server.</p>
+          <h3 data-en="Unlock on the device" data-zh="在设备上解锁">Unlock on the device</h3>
+          <p data-en="Face ID or your master password opens the vault locally. Nothing is checked with a server." data-zh="用面容 ID 或主密码在本地打开保险库，不需要向服务器校验任何东西。">Face ID or your master password opens the vault locally. Nothing is checked with a server.</p>
         </div>
       </div>
       <div class="shot-card reveal">
-        <div class="shot"><img src="assets/shot-detail-login.png" alt="VaultCell login entry detail with password strength and 2FA code" /></div>
+        <div class="shot"><img src="assets/shot-detail-login.png" alt="VaultCell login entry detail with password strength and 2FA code" data-en="VaultCell login entry detail with password strength and 2FA code" data-zh="VaultCell 登录条目详情，显示密码强度与双重认证验证码" /></div>
         <div class="shot-cap">
-          <h3>Every field, one tap away</h3>
-          <p>Passwords, 2FA codes, and notes stay masked until you unlock them on this iPhone.</p>
+          <h3 data-en="Every field, one tap away" data-zh="每个字段，一触即达">Every field, one tap away</h3>
+          <p data-en="Passwords, 2FA codes, and notes stay masked until you unlock them on this iPhone." data-zh="密码、双重认证验证码和备忘录保持遮蔽，直到你在这台 iPhone 上解锁它们。">Passwords, 2FA codes, and notes stay masked until you unlock them on this iPhone.</p>
         </div>
       </div>
       <div class="shot-card reveal">
-        <div class="shot"><img src="assets/shot-security.png" alt="VaultCell security score dashboard" /></div>
+        <div class="shot"><img src="assets/shot-security.png" alt="VaultCell security score dashboard" data-en="VaultCell security score dashboard" data-zh="VaultCell 安全评分面板" /></div>
         <div class="shot-cap">
-          <h3>Checks without uploads</h3>
-          <p>A local score flags weak, reused, and 2FA-missing entries. Your vault is never sent anywhere for analysis.</p>
+          <h3 data-en="Checks without uploads" data-zh="不上传也能检查">Checks without uploads</h3>
+          <p data-en="A local score flags weak, reused, and 2FA-missing entries. Your vault is never sent anywhere for analysis." data-zh="本地评分标出弱密码、重复使用密码和未开启双重认证的条目。你的保险库从不会被送到任何地方分析。">A local score flags weak, reused, and 2FA-missing entries. Your vault is never sent anywhere for analysis.</p>
         </div>
       </div>
       <div class="shot-card reveal">
-        <div class="shot"><img src="assets/shot-detail-card.png" alt="VaultCell bank card entry with card number, CVV, and online banking passwords" /></div>
+        <div class="shot"><img src="assets/shot-detail-card.png" alt="VaultCell bank card entry with card number, CVV, and online banking passwords" data-en="VaultCell bank card entry with card number, CVV, and online banking passwords" data-zh="VaultCell 银行卡条目，含卡号、安全码与网银密码" /></div>
         <div class="shot-cap">
-          <h3>Cards, not just logins</h3>
-          <p>Payment cards live in the same encrypted vault. CVV, PINs and banking passwords stay masked until you reveal them.</p>
+          <h3 data-en="Cards, not just logins" data-zh="不只登录，还有银行卡">Cards, not just logins</h3>
+          <p data-en="Payment cards live in the same encrypted vault. CVV, PINs and banking passwords stay masked until you reveal them." data-zh="支付卡也存在同一个加密保险库里。安全码、PIN 和网银密码保持遮蔽，直到你主动显示。">Payment cards live in the same encrypted vault. CVV, PINs and banking passwords stay masked until you reveal them.</p>
         </div>
       </div>
     </div>
@@ -377,33 +390,33 @@
 <section class="block sec-flow" id="security">
   <div class="wrap">
     <div class="sec-head reveal">
-      <h2>What we deliberately don't operate</h2>
-      <p>No account system, no servers of ours, no icon server, no plaintext domain index. That is a much shorter promise to keep.</p>
+      <h2 data-en="What we deliberately don't operate" data-zh="我们刻意不运营的东西">What we deliberately don't operate</h2>
+      <p data-en="No account system, no servers of ours, no icon server, no plaintext domain index. That is a much shorter promise to keep." data-zh="没有账号系统，没有我们的服务器，没有图标服务器，也没有明文域名索引。需要兑现的承诺短得多。">No account system, no servers of ours, no icon server, no plaintext domain index. That is a much shorter promise to keep.</p>
     </div>
     <div class="flow">
       <div class="flow-step reveal">
         <span class="num">1</span>
         <div class="fic"><i class="ph-fill ph-key"></i></div>
-        <h3>Keys are made on your iPhone</h3>
-        <p>Your master password derives the encryption key locally. It is never uploaded.</p>
+        <h3 data-en="Keys are made on your iPhone" data-zh="密钥在你的 iPhone 上生成">Keys are made on your iPhone</h3>
+        <p data-en="Your master password derives the encryption key locally. It is never uploaded." data-zh="加密密钥由你的主密码在本地派生，从不上传。">Your master password derives the encryption key locally. It is never uploaded.</p>
       </div>
       <div class="flow-step reveal">
         <span class="num">2</span>
         <div class="fic"><i class="ph-fill ph-database"></i></div>
-        <h3>Encrypted locally by default</h3>
-        <p>iCloud sync is optional and off by default. When you turn it on, encrypted records go only to your own private iCloud database, which we cannot read.</p>
+        <h3 data-en="Encrypted locally by default" data-zh="默认本地加密">Encrypted locally by default</h3>
+        <p data-en="iCloud sync is optional and off by default. When you turn it on, encrypted records go only to your own private iCloud database, which we cannot read." data-zh="iCloud 同步是可选功能，默认关闭。开启后，加密记录只会进入你自己的私有 iCloud 数据库，我们无法读取。">iCloud sync is optional and off by default. When you turn it on, encrypted records go only to your own private iCloud database, which we cannot read.</p>
       </div>
       <div class="flow-step reveal">
         <span class="num">3</span>
         <div class="fic"><i class="ph-fill ph-eye-slash"></i></div>
-        <h3>Icons do not become a data leak</h3>
-        <p>Built-in or generated locally by default. Automatic fetches go straight to the website and can be turned off any time.</p>
+        <h3 data-en="Icons do not become a data leak" data-zh="图标不会变成数据泄露">Icons do not become a data leak</h3>
+        <p data-en="Built-in or generated locally by default. Automatic fetches go straight to the website and can be turned off any time." data-zh="默认使用内置图标或在本地生成。自动获取时请求直达网站，随时可以关闭。">Built-in or generated locally by default. Automatic fetches go straight to the website and can be turned off any time.</p>
       </div>
       <div class="flow-step reveal">
         <span class="num">4</span>
         <div class="fic"><i class="ph-fill ph-folder-open"></i></div>
-        <h3>A change you can plan for</h3>
-        <p>Email and phone audits show which entries depend on an asset before you close it, so losing an inbox does not silently cost you access.</p>
+        <h3 data-en="A change you can plan for" data-zh="变化发生前，你有准备">A change you can plan for</h3>
+        <p data-en="Email and phone audits show which entries depend on an asset before you close it, so losing an inbox does not silently cost you access." data-zh="邮箱和手机号审计会在你停用之前列出依赖它们的条目，避免邮箱失效后悄悄失去访问权。">Email and phone audits show which entries depend on an asset before you close it, so losing an inbox does not silently cost you access.</p>
       </div>
     </div>
   </div>
@@ -414,12 +427,12 @@
   <div class="wrap">
     <div class="cta-wrap reveal">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <h2>A vault you can leave, whenever you want</h2>
-      <p>No sign-up, no servers of ours, and no lock-in for your entries. VaultCell is coming soon for iPhone and iPad — set a master password and start locally.</p>
+      <h2 data-en="A vault you can leave, whenever you want" data-zh="一个你随时可以离开的保险库">A vault you can leave, whenever you want</h2>
+      <p data-en="No sign-up, no servers of ours, and no lock-in for your entries. VaultCell is coming soon for iPhone and iPad — set a master password and start locally." data-zh="无需注册，没有我们的服务器，条目也不会被锁死。VaultCell 即将登陆 iPhone 和 iPad——设好主密码，从本地开始。">No sign-up, no servers of ours, and no lock-in for your entries. VaultCell is coming soon for iPhone and iPad — set a master password and start locally.</p>
       <div class="stores">
-        <span class="store is-soon" aria-disabled="true"><i class="ph-fill ph-apple-logo"></i><span class="st"><small>Coming soon on the</small><b>App Store</b></span></span>
+        <span class="store is-soon" aria-disabled="true"><i class="ph-fill ph-apple-logo"></i><span class="st"><small data-en="Coming soon on the" data-zh="即将登陆">Coming soon on the</small><b>App Store</b></span></span>
       </div>
-      <div class="cta-sub">iPhone and iPad. Core features work offline.</div>
+      <div class="cta-sub" data-en="iPhone and iPad. Core features work offline." data-zh="支持 iPhone 与 iPad，核心功能离线可用。">iPhone and iPad. Core features work offline.</div>
     </div>
   </div>
 </section>
@@ -428,32 +441,32 @@
 <section class="block" id="faq" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head reveal" style="margin-left:auto;margin-right:auto;text-align:center">
-      <h2>Common questions</h2>
+      <h2 data-en="Common questions" data-zh="常见问题">Common questions</h2>
     </div>
     <div class="faq">
       <details class="reveal" open>
-        <summary>Can I move my entries to another manager?<i class="ph-fill ph-plus"></i></summary>
-        <div class="ans">Yes. VaultCell supports Apple Credential Exchange (iOS 26+) for username/password entries, including from the iOS Passwords app. Passkeys, one-time codes and cards are not transferable in this version. Your saved logins can move with you and are not trapped in VaultCell.</div>
+        <summary><span data-en="Can I move my entries to another manager?" data-zh="我能把条目迁移到别的管理器吗？">Can I move my entries to another manager?</span><i class="ph-fill ph-plus"></i></summary>
+        <div class="ans" data-en="Yes. VaultCell supports Apple Credential Exchange (iOS 26+) for username/password entries, including from the iOS Passwords app. Passkeys, one-time codes and cards are not transferable in this version. Your saved logins can move with you and are not trapped in VaultCell." data-zh="可以。VaultCell 支持 Apple 凭证交换（iOS 26+）导入导出账号密码条目，包括从 iOS「密码」App 迁移。通行密钥、一次性验证码和银行卡在当前版本不可迁移。你保存的登录信息可以跟着你走，不会被困在 VaultCell 里。">Yes. VaultCell supports Apple Credential Exchange (iOS 26+) for username/password entries, including from the iOS Passwords app. Passkeys, one-time codes and cards are not transferable in this version. Your saved logins can move with you and are not trapped in VaultCell.</div>
       </details>
       <details class="reveal">
-        <summary>What happens if I close an email account or change my phone number?<i class="ph-fill ph-plus"></i></summary>
-        <div class="ans">VaultCell audits the email addresses and phone numbers referenced in your vault and shows which entries depend on each one. You can update those entries before you lose the inbox or number, instead of finding out when a recovery code lands somewhere you no longer control.</div>
+        <summary><span data-en="What happens if I close an email account or change my phone number?" data-zh="如果我注销邮箱或更换手机号会怎样？">What happens if I close an email account or change my phone number?</span><i class="ph-fill ph-plus"></i></summary>
+        <div class="ans" data-en="VaultCell audits the email addresses and phone numbers referenced in your vault and shows which entries depend on each one. You can update those entries before you lose the inbox or number, instead of finding out when a recovery code lands somewhere you no longer control." data-zh="VaultCell 会审计保险库中引用的邮箱地址和手机号，显示每个被谁依赖。你可以在邮箱或号码失效前先更新这些条目，而不是等恢复码发到一个你已不再控制的地方才发现。">VaultCell audits the email addresses and phone numbers referenced in your vault and shows which entries depend on each one. You can update those entries before you lose the inbox or number, instead of finding out when a recovery code lands somewhere you no longer control.</div>
       </details>
       <details class="reveal">
-        <summary>What if I forget my master password?<i class="ph-fill ph-plus"></i></summary>
-        <div class="ans">We cannot reset it — there is no account or server holding your key. Keep your encrypted backup file and its password safe; that is the only way back in.</div>
+        <summary><span data-en="What if I forget my master password?" data-zh="忘记主密码怎么办？">What if I forget my master password?</span><i class="ph-fill ph-plus"></i></summary>
+        <div class="ans" data-en="We cannot reset it — there is no account or server holding your key. Keep your encrypted backup file and its password safe; that is the only way back in." data-zh="我们无法帮你重置——没有账号，也没有服务器保存你的密钥。请妥善保管加密备份文件及其密码，这是唯一的恢复途径。">We cannot reset it — there is no account or server holding your key. Keep your encrypted backup file and its password safe; that is the only way back in.</div>
       </details>
       <details class="reveal">
-        <summary>Can you see my passwords or the sites I save?<i class="ph-fill ph-plus"></i></summary>
-        <div class="ans">No. We operate no server-side vault, and we do not run an icon lookup service. Built-in icons are local. If automatic fetching is on, your iPhone contacts the website directly, not us.</div>
+        <summary><span data-en="Can you see my passwords or the sites I save?" data-zh="你们能看到我的密码或保存的网站吗？">Can you see my passwords or the sites I save?</span><i class="ph-fill ph-plus"></i></summary>
+        <div class="ans" data-en="No. We operate no server-side vault, and we do not run an icon lookup service. Built-in icons are local. If automatic fetching is on, your iPhone contacts the website directly, not us." data-zh="不能。我们不运营任何服务端保险库，也不运行图标查询服务。内置图标是本地的；如果开启自动获取，是你的 iPhone 直接访问网站，而不是我们。">No. We operate no server-side vault, and we do not run an icon lookup service. Built-in icons are local. If automatic fetching is on, your iPhone contacts the website directly, not us.</div>
       </details>
       <details class="reveal">
-        <summary>Do I need an account or an internet connection?<i class="ph-fill ph-plus"></i></summary>
-        <div class="ans">No account is needed. Core features work offline; automatic icon fetching is optional and can be turned off. There is no subscription for the core features.</div>
+        <summary><span data-en="Do I need an account or an internet connection?" data-zh="需要账号或联网吗？">Do I need an account or an internet connection?</span><i class="ph-fill ph-plus"></i></summary>
+        <div class="ans" data-en="No account is needed. Core features work offline; automatic icon fetching is optional and can be turned off. There is no subscription for the core features." data-zh="不需要账号。核心功能离线可用；自动获取图标是可选功能，可随时关闭。核心功能没有订阅费。">No account is needed. Core features work offline; automatic icon fetching is optional and can be turned off. There is no subscription for the core features.</div>
       </details>
       <details class="reveal">
-        <summary>Does it sync across devices?<i class="ph-fill ph-plus"></i></summary>
-        <div class="ans">Yes, optionally. iCloud sync is off by default. Encrypted records go through your own private iCloud database, which we cannot read.</div>
+        <summary><span data-en="Does it sync across devices?" data-zh="支持多设备同步吗？">Does it sync across devices?</span><i class="ph-fill ph-plus"></i></summary>
+        <div class="ans" data-en="Yes, optionally. iCloud sync is off by default. Encrypted records go through your own private iCloud database, which we cannot read." data-zh="支持，且为可选。iCloud 同步默认关闭。加密记录通过你自己的私有 iCloud 数据库同步，我们无法读取。">Yes, optionally. iCloud sync is off by default. Encrypted records go through your own private iCloud database, which we cannot read.</div>
       </details>
     </div>
   </div>
@@ -468,27 +481,27 @@
           <img class="logo-mark" src="assets/logo.png" alt="VaultCell icon" width="34" height="34" />
           VaultCell
         </a>
-        <p>A private vault for iPhone and iPad. Core features work offline, with portable entries and icons that do not leak your site list.</p>
+        <p data-en="A private vault for iPhone and iPad. Core features work offline, with portable entries and icons that do not leak your site list." data-zh="iPhone 与 iPad 上的私密保险库。核心功能离线可用，条目可迁移，图标不会泄露你的网站清单。">A private vault for iPhone and iPad. Core features work offline, with portable entries and icons that do not leak your site list.</p>
       </div>
       <div class="foot-col">
-        <h4>Product</h4>
-        <a href="#features">Features</a>
-        <a href="#security">Security</a>
-        <a href="#showcase">Screenshots</a>
-        <a href="#download">Availability</a>
+        <h4 data-en="Product" data-zh="产品">Product</h4>
+        <a href="#features" data-en="Features" data-zh="功能">Features</a>
+        <a href="#security" data-en="Security" data-zh="安全">Security</a>
+        <a href="#showcase" data-en="Screenshots" data-zh="截图">Screenshots</a>
+        <a href="#download" data-en="Availability" data-zh="上线信息">Availability</a>
       </div>
       <div class="foot-col">
-        <h4>Legal</h4>
-        <a href="terms.html">Terms of Use</a>
-        <a href="privacy.html">Privacy Policy</a>
+        <h4 data-en="Legal" data-zh="法律">Legal</h4>
+        <a href="terms.html" data-en="Terms of Use" data-zh="使用条款">Terms of Use</a>
+        <a href="privacy.html" data-en="Privacy Policy" data-zh="隐私政策">Privacy Policy</a>
       </div>
       <div class="foot-col">
-        <h4>Contact</h4>
+        <h4 data-en="Contact" data-zh="联系">Contact</h4>
         <a href="mailto:support@vaultcell.app">support@vaultcell.app</a>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 WANG GANG · VaultCell. All rights reserved.</span>
+      <span data-en="© 2026 WANG GANG · VaultCell. All rights reserved." data-zh="© 2026 WANG GANG · VaultCell。保留所有权利。">© 2026 WANG GANG · VaultCell. All rights reserved.</span>
       <div class="soc">
         <a href="mailto:support@vaultcell.app" aria-label="Email"><i class="ph-fill ph-envelope-simple"></i></a>
       </div>
@@ -497,6 +510,46 @@
 </footer>
 
 <script>
+  (function(){
+    var body = document.body,
+        root = document.documentElement,
+        btns = document.querySelectorAll('.langs button'),
+        nodes = document.querySelectorAll('[data-en][data-zh]'),
+        langs = document.querySelector('.langs'),
+        soc = document.querySelector('.soc a');
+
+    function set(lang){
+      var zh = lang === 'zh';
+      body.setAttribute('data-lang', lang);
+      root.setAttribute('lang', zh ? 'zh-CN' : 'en');
+      nodes.forEach(function(n){
+        var val = n.getAttribute(zh ? 'data-zh' : 'data-en'),
+            t = n.tagName;
+        if (t === 'META') n.setAttribute('content', val);
+        else if (t === 'IMG') n.setAttribute('alt', val);
+        else if (t === 'TITLE') n.textContent = val;
+        else if (val.indexOf('<') !== -1) n.innerHTML = val;
+        else n.textContent = val;
+      });
+      btns.forEach(function(b){
+        b.setAttribute('aria-pressed', String(b.getAttribute('data-set') === lang));
+      });
+      if (langs) langs.setAttribute('aria-label', zh ? '语言' : 'Language');
+      if (soc) soc.setAttribute('aria-label', zh ? '电子邮件' : 'Email');
+      try { localStorage.setItem('vc-lang', lang); } catch(e){}
+    }
+
+    btns.forEach(function(b){
+      b.addEventListener('click', function(){ set(b.getAttribute('data-set')); });
+    });
+
+    var saved = null;
+    try { saved = localStorage.getItem('vc-lang'); } catch(e){}
+    if (saved === 'en' || saved === 'zh') { set(saved); return; }
+    var sys = (navigator.language || 'en').toLowerCase();
+    set(sys.indexOf('zh') === 0 ? 'zh' : 'en');
+  })();
+
   (function(){
     var els = document.querySelectorAll('.reveal');
     if(!('IntersectionObserver' in window)){
